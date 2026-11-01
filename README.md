@@ -295,7 +295,18 @@ In strict compliance with documentation integrity standards, only screenshot fil
 
 ---
 
-## 14. Academic Submission & Evaluation Guide
+## 14. Repository Documentation & Master Guides
+
+For detailed specifications, testing procedures, and evaluation material, refer to the following repository guides:
+- [Testing & Verification Guide (TESTING.md)](./TESTING.md) – Detailed REST Client instructions and route response verification.
+- [Security Policy & Disclosures (SECURITY.md)](./SECURITY.md) – SQL injection defense mechanism, parameterization, and environment safety.
+- [Contributing Standards (CONTRIBUTING.md)](./CONTRIBUTING.md) – Git conventions, code styles, and PR workflows.
+- [Master Viva Voce Guide (VIVA_GUIDE.md)](./VIVA_GUIDE.md) – Consolidated examination Q&A across the complete course syllabus.
+- [Audit & Forensic Report (AUDIT_REPORT.md)](./AUDIT_REPORT.md) – Comprehensive code inspection log and disclosure of implementation nuances.
+
+---
+
+## 15. Academic Submission & Evaluation Guide
 
 This repository is organized to facilitate transparent faculty review:
 - **Code Inspection:** Direct mapping between route specifications in documentation and handlers in each `server.js`.
@@ -304,7 +315,7 @@ This repository is organized to facilitate transparent faculty review:
 
 ---
 
-## 15. Author
+## 16. Author
 
 - **Student Name:** S.S.M.Bharadwaj
 - **Registration Number:** 252U1R1231
@@ -313,13 +324,13 @@ This repository is organized to facilitate transparent faculty review:
 
 ---
 
-## 16. License
+## 17. License
 
 Licensing is currently **unspecified**. This repository contains academic coursework and laboratory exercises for educational and evaluation purposes. All rights are reserved by the author until a formal open-source license is added.
 
 ---
 
-## 17. Acknowledgements
+## 18. Acknowledgements
 
 - Faculty and instructors of the **Backend Development Fundamentals** course.
 - The open-source communities behind Node.js, Express.js, and SQLite.
