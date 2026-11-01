@@ -62,6 +62,11 @@ The practical laboratory exercises in this curriculum support the following tech
 backend-development-fundamentals-labs/
 ├── .gitignore               # Root git ignore rules (node_modules, .env, OS files)
 ├── README.md                # Root curriculum overview and documentation index
+├── AUDIT_REPORT.md          # Comprehensive documentation audit and verification log
+├── CONTRIBUTING.md          # Contribution standards and pull request guidelines
+├── SECURITY.md              # Security policy and SQL injection prevention disclosure
+├── TESTING.md               # Declarative REST Client testing specifications
+├── VIVA_GUIDE.md            # Course-wide Viva Voce examination preparation guide
 ├── lab-01/                  # Lab 01: Node.js and Express Server (Complete)
 │   ├── .gitignore
 │   ├── lab-01.http
