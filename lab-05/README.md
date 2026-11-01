@@ -40,7 +40,6 @@ Lab 05 focuses on the principles of RESTful architectural design, clean HTTP ver
 
 ```text
 lab-05/
-├── node_modules/        # Installed dependencies (git-ignored)
 ├── .gitignore           # Excludes dependencies, environment files, and logs
 ├── lab-05.http          # REST Client request suite
 ├── package.json         # Package definitions and npm scripts
