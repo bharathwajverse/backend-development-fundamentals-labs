@@ -40,7 +40,6 @@ Lab 06 lays the structural foundation for server-side payload validation, saniti
 
 ```text
 lab-06/
-├── node_modules/        # Installed dependencies (git-ignored)
 ├── .gitignore           # Excludes dependencies, environment files, and logs
 ├── lab-06.http          # REST Client request suite
 ├── package.json         # Package definitions and npm scripts
