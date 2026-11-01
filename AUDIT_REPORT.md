@@ -71,6 +71,16 @@ During forensic analysis of the source code, several implementation anomalies we
 - **Detail:** The previous boilerplate claimed that `/about` and `/time` were active endpoints returning student metadata and timestamps. In reality, `server.js` in labs 03–10 only defines `/` and `/api/health`.
 - **Documentation Action:** Corrected all endpoint tables to reflect actual code; classified labs 03–10 as **Starter Scaffolds**.
 
+### 5. `node_modules/` Listed in Committed Project Structure Trees
+- **Location:** `lab-01/README.md` and `lab-03/README.md` through `lab-10/README.md`.
+- **Detail:** Earlier versions included `node_modules/` in the ASCII directory structure trees, which conflicted with Phase 6 instruction #10 ("Ensure no node_modules directories are documented as committed source files").
+- **Documentation Action:** Removed `node_modules/` from all ASCII trees, maintaining strict alignment with `.gitignore` and `lab-02/README.md`.
+
+### 6. Missing Root Master Documentation in Root Project Structure
+- **Location:** `README.md` Section 5.
+- **Detail:** The root directory tree displayed only `.gitignore`, `README.md`, and lab subfolders, omitting the master specification files (`AUDIT_REPORT.md`, `CONTRIBUTING.md`, `SECURITY.md`, `TESTING.md`, `VIVA_GUIDE.md`).
+- **Documentation Action:** Updated root `README.md` repository tree to include all top-level documentation guides.
+
 ---
 
 ## 4. Missing Information & Missing Screenshots Audit
