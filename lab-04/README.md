@@ -40,7 +40,6 @@ Lab 04 provides a foundational Express.js application designed to demonstrate th
 
 ```text
 lab-04/
-├── node_modules/        # Installed dependencies (git-ignored)
 ├── .gitignore           # Excludes dependencies, environment files, and logs
 ├── lab-04.http          # REST Client request suite
 ├── package.json         # Package definitions and npm scripts
