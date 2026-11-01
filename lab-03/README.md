@@ -40,7 +40,6 @@ Lab 03 provides a clean, modular Express.js starter scaffold configured with ind
 
 ```text
 lab-03/
-├── node_modules/        # Installed dependencies (git-ignored)
 ├── .gitignore           # Ignores node_modules, .env, and debug logs
 ├── lab-03.http          # REST Client declarative test requests
 ├── package.json         # Package manifest and npm scripts
