@@ -36,7 +36,6 @@ The objective of this lab is to establish an isolated Node.js development enviro
 
 ```text
 lab-01/
-├── node_modules/        # Installed runtime dependencies (git-ignored)
 ├── screenshots/         # Verified route execution evidence
 │   ├── 404.png          # Route not found response
 │   ├── about.png        # Student metadata response
