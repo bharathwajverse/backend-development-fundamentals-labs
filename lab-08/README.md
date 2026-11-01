@@ -40,7 +40,6 @@ Lab 08 provides the baseline architectural scaffold for integrating persistent d
 
 ```text
 lab-08/
-├── node_modules/        # Installed dependencies (git-ignored)
 ├── .gitignore           # Excludes dependencies, environment files, and logs
 ├── lab-08.http          # REST Client request suite
 ├── package.json         # Package definitions and npm scripts
