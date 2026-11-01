@@ -40,7 +40,6 @@ Lab 09 outlines backend communication patterns with external third-party web ser
 
 ```text
 lab-09/
-├── node_modules/        # Installed dependencies (git-ignored)
 ├── .gitignore           # Excludes dependencies, environment files, and logs
 ├── lab-09.http          # REST Client request suite
 ├── package.json         # Package definitions and npm scripts
