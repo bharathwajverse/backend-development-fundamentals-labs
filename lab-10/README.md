@@ -40,7 +40,6 @@ Lab 10 represents the capstone module of the laboratory sequence, focusing on pr
 
 ```text
 lab-10/
-├── node_modules/        # Installed dependencies (git-ignored)
 ├── .gitignore           # Excludes dependencies, environment files, and logs
 ├── lab-10.http          # REST Client request suite
 ├── package.json         # Package definitions and npm scripts
