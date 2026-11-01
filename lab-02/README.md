@@ -129,7 +129,7 @@ If you ever need to recreate or seed a fresh database from scratch, use the foll
 
 ```powershell
 # Create database directory if missing
-mkdir -p database
+if (-not (Test-Path database)) { New-Item -ItemType Directory -Path database }
 
 # Open/create SQLite database via CLI (if sqlite3 CLI is installed)
 sqlite3 database/bookStore.db
