@@ -323,7 +323,7 @@ This repository is organized to facilitate transparent faculty review:
 ## 16. Author
 
 - **Student Name:** S.S.M.Bharadwaj
-- **Registration Number:** 252U1R1231
+- **Registration Number:** 252U1R1236
 - **Section:** CSE-CORE-2E
 - **GitHub:** [@bharathwajverse](https://github.com/bharathwajverse)
 
