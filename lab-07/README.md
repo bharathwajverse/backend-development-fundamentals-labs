@@ -40,7 +40,6 @@ Lab 07 establishes the architectural baseline for secure backend communication, 
 
 ```text
 lab-07/
-├── node_modules/        # Installed dependencies (git-ignored)
 ├── .gitignore           # Excludes dependencies, environment files, and logs
 ├── lab-07.http          # REST Client request suite
 ├── package.json         # Package definitions and npm scripts
