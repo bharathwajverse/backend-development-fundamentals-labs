@@ -22,6 +22,10 @@ All documentation was aligned with the ground truth of the codebase. Placeholder
 | :--- | :--- |
 | `README.md` | Primary repository documentation with full curriculum index, lab comparison matrix, architecture guide, and security best practices. |
 | `AUDIT_REPORT.md` | Complete documentation audit, code verification log, and inconsistency disclosure report. |
+| `CONTRIBUTING.md` | Comprehensive contribution standards, branch conventions, and PR testing checklist. |
+| `SECURITY.md` | Security policy detailing SQL injection prevention, parameterization, and secret isolation. |
+| `TESTING.md` | Declarative REST Client testing procedures and route verification instructions. |
+| `VIVA_GUIDE.md` | Master Viva Voce preparation guide covering Node.js, Express, SQLite, and REST architecture. |
 
 ### Files Updated
 | File Path | Nature of Changes |
