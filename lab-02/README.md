@@ -397,6 +397,8 @@ API testing is conducted via [`lab-02.http`](./lab-02.http):
 ### Q5: Why is `app.listen()` called inside `initializeDBAndServer()`?
 > **Answer:** Connecting to the SQLite database is an asynchronous operation. If `app.listen()` is executed before the database connection resolves, incoming HTTP requests that arrive immediately will attempt to access `db`, which remains `null`. This causes unhandled promise rejections and server crashes. Nesting `app.listen()` inside `initializeDBAndServer()` guarantees the server accepts traffic only after the database connection is fully established.
 
+*(For full course-wide viva preparation, see the [Master Viva Voce Guide](../VIVA_GUIDE.md)).*
+
 ---
 
 ## 16. Conclusion
