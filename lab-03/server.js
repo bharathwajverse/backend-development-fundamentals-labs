@@ -1,4 +1,4 @@
-const express = require("express");
+﻿const express = require("express");
 const path = require("path");
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
@@ -85,7 +85,7 @@ app.get("/", (req, res) => {
   res.status(200).json({
     message: "Welcome to Backend Development Fundamentals - Lab 3 (REST API, Query Parameters, Validation & Debugging)",
     student: "S.S.M.Bharadwaj",
-    registrationNumber: "252U1R1231",
+    registrationNumber: "252U1R1236",
     section: "CSE-CORE-2E",
     college: "Aurora Deemed-to-be-University",
     faculty: "Joel Prashanth D",
