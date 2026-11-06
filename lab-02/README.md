@@ -1,4 +1,4 @@
-# Lab 2: SQLite Database and CRUD Routes
+﻿# Lab 2: SQLite Database and CRUD Routes
 
 ## Lab Details
 
@@ -10,7 +10,7 @@
 ## Student Details
 
 - **Name:** S.S.M.Bharadwaj
-- **Registration Number:** 252U1R1231
+- **Registration Number:** 252U1R1236
 - **Section:** CSE-CORE-2E
 
 ## Deployment Status
@@ -33,8 +33,8 @@ The primary objective of this laboratory exercise is to connect an Express.js ba
 - **Web Application Framework:** Express.js (`^5.1.0`)
 - **Database Engine:** SQLite (Embedded relational database)
 - **Database Drivers & Wrappers:**
-  - `sqlite3` (`^5.1.7`) – Asynchronous SQLite client driver
-  - `sqlite` (`^5.1.1`) – Promise-based wrapper around sqlite3
+  - `sqlite3` (`^5.1.7`) â€“ Asynchronous SQLite client driver
+  - `sqlite` (`^5.1.1`) â€“ Promise-based wrapper around sqlite3
 - **Language:** JavaScript (ES6+ with `async`/`await`)
 - **Development Utility:** Nodemon (`^3.1.10`)
 - **API Testing Suite:** VS Code REST Client (`lab-02.http`)
@@ -45,14 +45,14 @@ The primary objective of this laboratory exercise is to connect an Express.js ba
 
 ```text
 lab-02/
-├── database/
-│   └── bookStore.db     # Pre-populated binary SQLite database file
-├── .gitignore           # Excludes node_modules, .env, and log files
-├── lab-02.http          # Declarative CRUD test requests for REST Client
-├── package.json         # Project metadata, scripts, and runtime dependencies
-├── package-lock.json    # Exact dependency tree lockfile
-├── README.md            # Lab 2 documentation and viva guide
-└── server.js            # Express server with SQLite connection and routes
+â”œâ”€â”€ database/
+â”‚   â””â”€â”€ bookStore.db     # Pre-populated binary SQLite database file
+â”œâ”€â”€ .gitignore           # Excludes node_modules, .env, and log files
+â”œâ”€â”€ lab-02.http          # Declarative CRUD test requests for REST Client
+â”œâ”€â”€ package.json         # Project metadata, scripts, and runtime dependencies
+â”œâ”€â”€ package-lock.json    # Exact dependency tree lockfile
+â”œâ”€â”€ README.md            # Lab 2 documentation and viva guide
+â””â”€â”€ server.js            # Express server with SQLite connection and routes
 ```
 
 ---
