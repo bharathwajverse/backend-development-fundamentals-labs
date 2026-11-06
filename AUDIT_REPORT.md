@@ -33,7 +33,7 @@ All documentation was aligned with the ground truth of the codebase. Placeholder
 | `lab-01/README.md` | Comprehensive rewrite: updated student credentials to S.S.M.Bharadwaj, verified route table (`/`, `/about`, `/time`, 404), documented actual screenshots, and added technical viva questions. |
 | `lab-01/server.js` | Updated student name in `/about` route from previous name to `S.S.M.Bharadwaj` in accordance with user requirements. |
 | `lab-02/README.md` | Strict Lab 2 assignment rewrite: documented verified `book` schema (`id`, `title`, `author`, `price`, `pages`), 10 initial records, CRUD endpoint table, SQL injection prevention mechanics, deployment status, and viva guide. |
-| `lab-03/README.md` | Overhauled scaffold documentation: corrected port to 5002, removed false claims about `/about` and `/time`, and documented actual endpoints (`/`, `/api/health`, 404). |
+| `lab-03/README.md` | Full Lab 3 documentation: REST API, query parameters (search_q, order_by, order, limit, offset, min_price, max_price), strict request payload validation, status code semantics (201, 200, 400, 404), 16 verified test screenshots, debugging guide for 4 deliberate bugs, and Render deployment specifications. |
 | `lab-04/README.md` | Overhauled scaffold documentation: aligned with actual Express 5 middleware code and default port 5002. |
 | `lab-05/README.md` | Overhauled scaffold documentation: documented REST routing baseline and corrected endpoint table. |
 | `lab-06/README.md` | Overhauled scaffold documentation: documented validation & error handling baseline. |
@@ -99,7 +99,9 @@ During forensic analysis of the source code, several implementation anomalies we
   - `delete-book.png` – **Missing**
   - `database.png` – **Missing**
   *(Documentation Note: In previous README version, broken Markdown image links were pointing to non-existent files. These broken links were removed and replaced with an explicit pending notice).*
-- **Labs 03 through 10:**
+- **Lab 03:**
+  - `01-get-all-books-default.png` through `16-debug-missing-await.png` (16 total images) – **Present & Verified** in `lab-03/screenshots/` covering all query parameter filters, CRUD operations, validation failures, 404 handler, SQLite CLI queries, and debugging bug resolutions.
+- **Labs 04 through 10:**
   - Screenshots are **not present**. Documented as pending subsequent coursework.
 
 ### Deployment URLs
