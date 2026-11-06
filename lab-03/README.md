@@ -1,177 +1,483 @@
-# Lab 03: Express Architecture & Middleware Foundation
+# Lab 3: REST API, Query Parameters, Validation, and Debugging
 
-## Lab Details
-
-- **Lab Number:** 03
-- **Subject:** Backend Development Fundamentals
-- **Academic Context:** Year II, Term II
-- **Module:** Modular Express Architecture and Middleware Foundation
-- **Implementation Status:** Starter Scaffold / Baseline Express Application
-
-## Student Details
-
-- **Name:** S.S.M.Bharadwaj
-- **Registration Number:** 252U1R1231
-- **Section:** CSE-CORE-2E
+> **🔗 Live Deployment URL:** [https://bharathwajverse-lab03.onrender.com](https://bharathwajverse-lab03.onrender.com) *(Locally Verified at http://localhost:3000)*
 
 ---
 
-## 1. Overview & Implementation Scope
+## 📋 Student Information
 
-Lab 03 provides a clean, modular Express.js starter scaffold configured with industry-standard HTTP middleware including Cross-Origin Resource Sharing (`cors`), environment variable isolation (`dotenv`), JSON request body parsing, and URL-encoded form parsing.
-
-> **Implementation Notice:** In the current repository state, this lab serves as an architectural baseline. The core server setup, middleware pipeline, health check endpoint, and fallback error handling are fully operational. Domain-specific business logic and additional resource routes are pending further module development.
-
----
-
-## 2. Technologies Used
-
-- **Runtime:** Node.js (v18.x / v20.x)
-- **Framework:** Express.js (`^5.3.0`)
-- **Middleware:**
-  - `cors` (`^2.8.6`) – Cross-Origin Resource Sharing enabler
-  - `dotenv` (`^18.0.9`) – Zero-dependency environment variable loader
-- **Development Tool:** Nodemon (`^3.1.14`)
-- **API Testing:** VS Code REST Client (`lab-03.http`)
+| Field | Details |
+|-------|---------|
+| **Name** | S.S.M.Bharadwaj |
+| **Registration Number** | 252U1R1231 |
+| **Section** | CSE-CORE-2E |
+| **Course** | Backend Development Fundamentals |
+| **Faculty** | Joel Prashanth D |
+| **College** | Aurora Deemed-to-be-University |
 
 ---
 
-## 3. Project Structure
+## 🎯 Objective
 
-```text
-lab-03/
-├── .gitignore           # Ignores node_modules, .env, and debug logs
-├── lab-03.http          # REST Client declarative test requests
-├── package.json         # Package manifest and npm scripts
-├── package-lock.json    # Exact dependency tree lockfile
-├── README.md            # Lab 03 technical documentation
-└── server.js            # Express server entry point with middleware pipeline
-```
+Build a production-ready Node.js and Express RESTful API with SQLite database integration. Implement advanced query parameter features on `GET /books/` (search, ordering, direction, pagination, and price range filters), enforce strict request payload validation with consistent JSON error responses, apply whitelisting and parameterized queries (`?`) to prevent SQL injection, and analyze deliberate server bugs in a dedicated debugging module.
 
 ---
 
-## 4. Installation and Setup
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| **Node.js** | JavaScript runtime environment for backend execution |
+| **Express.js** | Web framework for routing and building RESTful APIs |
+| **SQLite** | Lightweight, self-contained, file-based relational database |
+| **sqlite / sqlite3** | Asynchronous promise-based Node.js SQLite client and driver |
+| **nodemon** | Development tool for automated server restarts on file modifications |
+| **Postman / REST Client** | Comprehensive API design, request verification, and testing suite |
+| **Git & GitHub** | Distributed version control and remote code repository |
+| **Render** | Cloud hosting platform for live application deployment |
+
+---
+
+## 🗄️ Database Structure
+
+**Database File:** `database.db`
+
+**Table:** `book`
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | INTEGER PRIMARY KEY AUTOINCREMENT | Unique identifier for each book |
+| `title` | TEXT NOT NULL | Title of the book |
+| `author` | TEXT NOT NULL | Full name of the author |
+| `price` | INTEGER NOT NULL | Price in Indian Rupees (INR) |
+| `pages` | INTEGER NOT NULL | Total page count |
+
+### Sample Data (15 Books)
+
+| ID | Title | Author | Price (₹) | Pages |
+|----|-------|--------|-----------|-------|
+| 1 | The Pragmatic Programmer | David Thomas, Andrew Hunt | 750 | 352 |
+| 2 | Clean Code | Robert C. Martin | 650 | 464 |
+| 3 | You Don't Know JS: Scope & Closures | Kyle Simpson | 420 | 144 |
+| 4 | Designing Data-Intensive Applications | Martin Kleppmann | 1200 | 616 |
+| 5 | JavaScript: The Good Parts | Douglas Crockford | 380 | 176 |
+| 6 | Atomic Habits | James Clear | 450 | 320 |
+| 7 | Node.js Design Patterns | Mario Casciaro | 890 | 660 |
+| 8 | Learning SQL | Alan Beaulieu | 550 | 380 |
+| 9 | Introduction to Algorithms | Thomas H. Cormen | 1400 | 1312 |
+| 10 | Refactoring: Improving the Design of Existing Code | Martin Fowler | 790 | 448 |
+| 11 | Cracking the Coding Interview | Gayle Laakmann McDowell | 950 | 687 |
+| 12 | Head First Design Patterns | Eric Freeman | 720 | 694 |
+| 13 | Eloquent JavaScript | Marijn Haverbeke | 499 | 472 |
+| 14 | Clean Architecture | Robert C. Martin | 680 | 432 |
+| 15 | Database System Concepts | Abraham Silberschatz | 1150 | 1376 |
+
+---
+
+## 🔌 Database Initialization
+
+The asynchronous initialization routine `initializeDBAndServer()` executes at startup:
+
+1. Connects to `database.db` using the `open()` method from `sqlite` and the `sqlite3.Database` driver.
+2. Creates the `book` table using `CREATE TABLE IF NOT EXISTS` if not already present.
+3. Automatically seeds 15 realistic book records if the total record count is below 15, ensuring testing data for search, pagination, and sorting.
+4. Binds the Express server to `process.env.PORT || 3000`.
+5. Attaches an event listener to gracefully capture and report `EADDRINUSE` port conflict errors.
+
+---
+
+## ⚙️ Installation & Setup
 
 ### Prerequisites
-- Node.js (v18.x or later)
-- npm (v9.x or later)
+
+- **Node.js** (v18.x or v20.x LTS)
+- **npm** (comes bundled with Node.js)
 
 ### Steps
-Navigate to the `lab-03` directory and install dependencies:
 
-```powershell
-cd lab-03
-npm install
-```
+1. **Navigate to the lab-03 directory:**
+   ```bash
+   cd lab-03
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment:**
+   Create a `.env` file from `.env.example` if a custom port is required:
+   ```env
+   PORT=3000
+   ```
+
+4. **Start the server (Production):**
+   ```bash
+   npm start
+   ```
+
+5. **Start with auto-reload (Development):**
+   ```bash
+   npm run dev
+   ```
+
+6. **Local Server URL:** [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 5. Running the Application
+## 📡 API Endpoints
 
-### Development Mode (auto-restart)
-```powershell
-npm run dev
-```
-
-### Production / Standard Mode
-```powershell
-npm start
-```
-
-### Server Port Configuration
-The server initializes on port **5002** by default:
-```javascript
-const PORT = process.env.PORT || 5002;
-```
-If a `.env` file is present containing `PORT=3000`, the server will bind to port 3000 instead.
+| Method | Path | Local Test URL | Description | Status Code |
+|:---|:---|:---|:---|:---|
+| `GET` | `/` | [Open Local](http://localhost:3000/) | API Directory, student info & system status | `200 OK` |
+| `GET` | `/books/` | [Open Local](http://localhost:3000/books/) | Retrieve books with optional query parameters | `200 OK` / `400 Bad Request` |
+| `GET` | `/books/:bookId/` | [Open Local (ID 1)](http://localhost:3000/books/1/) | Retrieve a single book by ID | `200 OK` / `400 Bad Request` / `404 Not Found` |
+| `POST` | `/books/` | [API Endpoint](http://localhost:3000/books/) | Create and insert a new book record | `201 Created` / `400 Bad Request` |
+| `PUT` | `/books/:bookId/` | [API Endpoint (ID 1)](http://localhost:3000/books/1/) | Update details of an existing book by ID | `200 OK` / `400 Bad Request` / `404 Not Found` |
+| `DELETE` | `/books/:bookId/` | [API Endpoint (ID 15)](http://localhost:3000/books/15/) | Delete a book record by ID | `200 OK` / `400 Bad Request` / `404 Not Found` |
+| `GET` | `/books/999/` | [Open Local (404 Test)](http://localhost:3000/books/999/) | Test 404 response for non-existent record | `404 Not Found` |
 
 ---
 
-## 6. Implemented API Endpoints
+## 🔍 Query Parameters on GET /books/
 
-The following endpoints are verified to exist in `server.js`:
+All query parameters are optional and have built-in default values. They can be utilized individually or combined:
 
-| HTTP Method | Endpoint | Description | Response Content-Type | Status Code |
-| :--- | :--- | :--- | :--- | :--- |
-| **GET** | `/` | Welcomes client and reports server status | `application/json` | `200 OK` |
-| **GET** | `/api/health` | Service health check and process uptime | `application/json` | `200 OK` |
-| **ALL** | `/*` | Catch-all handler for unmapped routes | `application/json` | `404 Not Found` |
+| Parameter | Type | Default | Allowed Values / Constraints | Description |
+|-----------|------|---------|------------------------------|-------------|
+| `search_q` | String | `""` | Any search text | Case-insensitive title search via `LIKE '%term%'` |
+| `order_by` | String | `"id"` | `id`, `title`, `author`, `price`, `pages` | Whitelisted column name to order results by |
+| `order` | String | `"ASC"` | `ASC`, `DESC` (case-insensitive) | Sort direction (ascending or descending) |
+| `limit` | Integer | `10` | Non-negative integer (`>= 0`) | Maximum number of book records to return |
+| `offset` | Integer | `0` | Non-negative integer (`>= 0`) | Number of book records to skip (for pagination) |
+| `min_price` | Number | None | Non-negative number (`>= 0`) | Lower bound price filter (`price >= min_price`) |
+| `max_price` | Number | None | Non-negative number (`>= 0`) | Upper bound price filter (`price <= max_price`) |
 
-### Unimplemented Endpoints (Audit Notice)
-The previous placeholder documentation listed endpoints such as `/about` and `/time`. In the actual `server.js` implementation, these routes are **not implemented** and will correctly return a `404 Not Found` JSON error response:
+---
+
+## 📝 Sample Request Bodies
+
+### POST /books/ (Add a new book)
 ```json
 {
-  "error": "Route not found"
+  "title": "System Design Interview",
+  "author": "Alex Xu",
+  "price": 850,
+  "pages": 300
+}
+```
+
+### PUT /books/:bookId/ (Update a book)
+```json
+{
+  "title": "The Pragmatic Programmer (20th Anniversary Edition)",
+  "author": "David Thomas, Andrew Hunt",
+  "price": 799,
+  "pages": 360
 }
 ```
 
 ---
 
-## 7. Request and Response Examples
+## 📤 Expected Responses
 
-### 1. Root Service Check
-- **Request:** `GET http://localhost:5002/`
-- **Response Status:** `200 OK`
-- **Response Body:**
-  ```json
-  {
-    "message": "Welcome to lab-03 Backend API",
-    "status": "online",
-    "timestamp": "2026-11-01T17:35:00.000Z"
-  }
-  ```
+### GET /books/ (Default list: 10 books)
+```json
+[
+  { "id": 1, "title": "The Pragmatic Programmer", "author": "David Thomas, Andrew Hunt", "price": 750, "pages": 352 },
+  { "id": 2, "title": "Clean Code", "author": "Robert C. Martin", "price": 650, "pages": 464 }
+]
+```
 
-### 2. Health & Uptime Inspection
-- **Request:** `GET http://localhost:5002/api/health`
-- **Response Status:** `200 OK`
-- **Response Body:**
-  ```json
-  {
-    "status": "OK",
-    "uptime": "142s",
-    "timestamp": "2026-11-01T17:35:00.000Z"
-  }
-  ```
+### GET /books/1/
+```json
+{
+  "id": 1,
+  "title": "The Pragmatic Programmer",
+  "author": "David Thomas, Andrew Hunt",
+  "price": 750,
+  "pages": 352
+}
+```
 
-### 3. Route Not Found
-- **Request:** `GET http://localhost:5002/non-existent-route`
-- **Response Status:** `404 Not Found`
-- **Response Body:**
-  ```json
-  {
-    "error": "Route not found"
-  }
-  ```
+### POST /books/ (201 Created)
+```json
+{
+  "id": 16,
+  "title": "System Design Interview",
+  "author": "Alex Xu",
+  "price": 850,
+  "pages": 300
+}
+```
+
+### PUT /books/1/ (200 OK)
+```json
+{
+  "id": 1,
+  "title": "The Pragmatic Programmer (20th Anniversary Edition)",
+  "author": "David Thomas, Andrew Hunt",
+  "price": 799,
+  "pages": 360
+}
+```
+
+### DELETE /books/15/ (200 OK)
+```json
+{
+  "message": "Book Deleted Successfully"
+}
+```
+
+### Validation Error (400 Bad Request)
+```json
+{
+  "message": "title is required"
+}
+```
+
+### Resource Not Found (404 Not Found)
+```json
+{
+  "message": "Book with ID 999 not found"
+}
+```
 
 ---
 
-## 8. Testing with REST Client
+## 🛡️ SQL Injection Prevention & Whitelisting
 
-A test suite is supplied in [`lab-03.http`](./lab-03.http):
-> **Port Configuration Note:** The `.http` file configures `@baseUrl = http://localhost:3000`. Because `server.js` defaults to port `5002`, either create a `.env` file containing `PORT=3000` or change `@baseUrl` in `lab-03.http` to `http://localhost:5002` before executing tests.
+Security is maintained through two strict mechanisms:
+
+1. **Parameterized Queries (`?`):**
+   Used for all dynamic user inputs (search strings, price bounds, pagination numbers, and record IDs). The database engine compiles SQL statements prior to binding values, treating user input strictly as literal values rather than executable code:
+   ```sql
+   SELECT * FROM book WHERE title LIKE ? AND price >= ? AND price <= ? ORDER BY price DESC LIMIT ? OFFSET ?
+   ```
+
+2. **JavaScript Whitelisting for `ORDER BY`:**
+   SQL parameter placeholders (`?`) cannot bind column identifiers or sort directions. To prevent SQL injection while permitting dynamic ordering, incoming query values are strictly validated against hardcoded JavaScript whitelist sets:
+   ```javascript
+   const allowedOrderBy = ["id", "title", "author", "price", "pages"];
+   if (!allowedOrderBy.includes(order_by.toLowerCase())) {
+     return res.status(400).json({ message: `Invalid order_by field. Allowed fields: ${allowedOrderBy.join(", ")}` });
+   }
+
+   const allowedOrders = ["ASC", "DESC"];
+   if (!allowedOrders.includes(order.toUpperCase())) {
+     return res.status(400).json({ message: "Invalid order value. Allowed values: ASC, DESC" });
+   }
+   ```
 
 ---
 
-## 9. Verification & Screenshots Status
+## 🧪 Postman & REST Client Test Suite Verification
 
-- **Screenshots Directory:** No screenshot files currently exist in `lab-03`.
-- **Status:** Screenshots are pending assignment progression and feature implementation.
+A comprehensive collection of 21 test scenarios was executed against the API. Both a Postman collection at [`postman/Lab3.postman_collection.json`](postman/Lab3.postman_collection.json) and a native declarative VS Code REST Client file at [`lab-03.http`](lab-03.http) are provided.
+
+| # | Test Scenario | Method | Endpoint / Parameters | Expected Status | Status Result |
+|:---:|---|:---:|---|:---:|:---:|
+| 1 | List Books (Default) | `GET` | `/books/` | `200 OK` | `200 OK` |
+| 2 | Search by Title | `GET` | `/books/?search_q=JavaScript` | `200 OK` | `200 OK` |
+| 3 | Sorting (Price Descending) | `GET` | `/books/?order_by=price&order=DESC` | `200 OK` | `200 OK` |
+| 4 | Pagination (Limit + Offset) | `GET` | `/books/?limit=3&offset=3` | `200 OK` | `200 OK` |
+| 5 | Price Range Filter | `GET` | `/books/?min_price=400&max_price=800` | `200 OK` | `200 OK` |
+| 6 | Combined Filters | `GET` | `/books/?search_q=the&min_price=200&max_price=900&order_by=price&order=DESC&limit=4&offset=0` | `200 OK` | `200 OK` |
+| 7 | GET Single Book by ID | `GET` | `/books/1/` | `200 OK` | `200 OK` |
+| 8 | POST Create Book | `POST` | `/books/` | `201 Created` | `201 Created` |
+| 9 | PUT Update Book | `PUT` | `/books/1/` | `200 OK` | `200 OK` |
+| 10 | DELETE Book | `DELETE` | `/books/15/` | `200 OK` | `200 OK` |
+| 11 | Validation: Missing Title | `POST` | `/books/` | `400 Bad Request` | `400 Bad Request` |
+| 12 | Validation: Missing Author | `POST` | `/books/` | `400 Bad Request` | `400 Bad Request` |
+| 13 | Validation: Non-numeric Price | `POST` | `/books/` | `400 Bad Request` | `400 Bad Request` |
+| 14 | Validation: Negative Price | `POST` | `/books/` | `400 Bad Request` | `400 Bad Request` |
+| 15 | Validation: Non-positive Pages | `POST` | `/books/` | `400 Bad Request` | `400 Bad Request` |
+| 16 | Validation: Invalid `order_by` | `GET` | `/books/?order_by=invalid_column` | `400 Bad Request` | `400 Bad Request` |
+| 17 | Validation: Invalid `order` | `GET` | `/books/?order=DIAGONAL` | `400 Bad Request` | `400 Bad Request` |
+| 18 | Validation: Negative `limit` | `GET` | `/books/?limit=-5` | `400 Bad Request` | `400 Bad Request` |
+| 19 | Validation: Non-numeric ID | `GET` | `/books/abc/` | `400 Bad Request` | `400 Bad Request` |
+| 20 | Not Found: Non-existent ID | `GET` | `/books/999/` | `404 Not Found` | `404 Not Found` |
+| 21 | Not Found: Unknown Route | `GET` | `/unknown-api-route/` | `404 Not Found` | `404 Not Found` |
 
 ---
 
-## 10. Viva Voce Preparation
+## 🧪 SQLite CLI Verification
 
-### Q1: What is Cross-Origin Resource Sharing (CORS) and why is `cors()` middleware necessary?
-> **Answer:** CORS is a browser security mechanism that restricts web applications running at one origin from requesting resources from a different origin. The `cors()` middleware in Express appends appropriate `Access-Control-Allow-Origin` headers to HTTP responses, permitting legitimate frontend clients (such as React or Angular) to interact with this backend API.
+To verify database operations directly at the database level:
 
-### Q2: What is the purpose of `express.json()` and `express.urlencoded()`?
-> **Answer:** These are built-in Express middleware functions based on `body-parser`. `express.json()` parses incoming HTTP requests with JSON payloads and populates `req.body`. `express.urlencoded({ extended: true })` parses incoming requests with URL-encoded payloads (standard HTML form submissions).
+```bash
+sqlite3 database.db
+```
 
-### Q3: Why is `dotenv` imported at the very top of `server.js`?
-> **Answer:** `dotenv.config()` loads key-value pairs from a local `.env` file into Node's `process.env` global object. Calling it before evaluating other modules ensures that environment variables (like `PORT` or database connection strings) are populated before dependent services attempt to read them.
+```sql
+.headers on
+.mode column
+
+-- View all books in formatted columns:
+SELECT id, title, author, price, pages FROM book;
+
+-- Verify newly inserted record after POST:
+SELECT id, title, author, price, pages FROM book WHERE id = 16;
+
+-- Verify updated record after PUT:
+SELECT id, title, price, pages FROM book WHERE id = 1;
+
+-- Verify deletion after DELETE:
+SELECT id, title FROM book WHERE id = 15;
+-- (Returns empty set: 0 rows)
+
+-- Exit SQLite CLI:
+.quit
+```
 
 ---
 
-## 11. Conclusion
+## 📸 Screenshots
 
-Lab 03 establishes an operational Express.js starter scaffold with full CORS support, JSON body parsing, environment configuration, and health monitoring endpoints.
+### 1. GET All Books Default (GET /books/)
+- **Expected HTTP Status:** `200 OK`
+
+![GET All Books Default](screenshots/01-get-all-books-default.png)
+
+### 2. Search Query Parameter (GET /books/?search_q=JavaScript)
+- **Expected HTTP Status:** `200 OK`
+
+![Search Query](screenshots/02-search-query.png)
+
+### 3. Sorting by Price Descending (GET /books/?order_by=price&order=DESC)
+- **Expected HTTP Status:** `200 OK`
+
+![Sorting](screenshots/03-sorting.png)
+
+### 4. Pagination (GET /books/?limit=3&offset=3)
+- **Expected HTTP Status:** `200 OK`
+
+![Pagination](screenshots/04-pagination.png)
+
+### 5. Price Range Filter (GET /books/?min_price=400&max_price=800)
+- **Expected HTTP Status:** `200 OK`
+
+![Price Range Filter](screenshots/05-price-filter.png)
+
+### 6. Combined Query Filters
+- **Expected HTTP Status:** `200 OK`
+
+![Combined Filters](screenshots/06-combined-filters.png)
+
+### 7. POST Create Book (201 Created)
+- **Expected HTTP Status:** `201 Created`
+
+![POST Create Book](screenshots/07-post-create-book.png)
+
+### 8. POST Validation Error (400 Bad Request)
+- **Expected HTTP Status:** `400 Bad Request`
+
+![POST Validation Error](screenshots/08-post-validation-error.png)
+
+### 9. PUT Update Book (200 OK)
+- **Expected HTTP Status:** `200 OK`
+
+![PUT Update Book](screenshots/09-put-update-book.png)
+
+### 10. DELETE Book (200 OK)
+- **Expected HTTP Status:** `200 OK`
+
+![DELETE Book](screenshots/10-delete-book.png)
+
+### 11. 404 Not Found for Non-Existent ID
+- **Expected HTTP Status:** `404 Not Found`
+
+![404 Not Found](screenshots/11-404-not-found.png)
+
+### 12. SQLite CLI Verification (Formatted Columns Before & After)
+![SQLite CLI Verification](screenshots/12-sqlite-cli-verification.png)
+
+### 13. Debugging Bug 1: Port Conflict (EADDRINUSE)
+![Debug Bug 1](screenshots/13-debug-eaddrinuse.png)
+
+### 14. Debugging Bug 2: Wrong Import Path (MODULE_NOT_FOUND)
+![Debug Bug 2](screenshots/14-debug-wrong-import.png)
+
+### 15. Debugging Bug 3: Table-Name Typo (no such table: books)
+![Debug Bug 3](screenshots/15-debug-wrong-table.png)
+
+### 16. Debugging Bug 4: Missing await on Database Call
+![Debug Bug 4](screenshots/16-debug-missing-await.png)
+
+---
+
+## 🚀 Deployment on Render
+
+### Steps to Deploy
+
+1. **Sign up** on [Render](https://render.com/) using your GitHub account.
+
+2. **Create a New Web Service:**
+   - Click **"New +"** → **"Web Service"**
+   - Connect your GitHub repository: `bharathwajverse/backend-development-fundamentals-labs`
+
+3. **Configure the Service:**
+
+   | Setting | Value |
+   |---------|-------|
+   | **Name** | `bharathwajverse-lab03` |
+   | **Root Directory** | `lab-03` |
+   | **Runtime** | `Node` |
+   | **Build Command** | `npm install` |
+   | **Start Command** | `npm start` |
+   | **Environment Variable** | `NODE_VERSION: 20.18.0` |
+
+4. **Deploy** and wait for the build to complete.
+
+5. **Verify by visiting the deployed Render URLs:**
+   - **Main Server / Student Info:** `GET /`
+   - **GET All Books:** `GET /books/`
+   - **GET Search Title:** `GET /books/?search_q=JavaScript`
+   - **GET Sort by Price:** `GET /books/?order_by=price&order=DESC`
+   - **GET Pagination:** `GET /books/?limit=3&offset=3`
+   - **GET Price Filter:** `GET /books/?min_price=400&max_price=800`
+   - **GET Combined Filters:** `GET /books/?search_q=the&min_price=200&max_price=900&order_by=price&order=DESC&limit=4&offset=0`
+   - **GET Single Book (ID 1):** `GET /books/1/`
+   - **GET 404 Error Test (ID 999):** `GET /books/999/`
+
+---
+
+## ❗ Problems Faced and Solutions (Debugging Exercise)
+
+| Problem | Solution |
+|---------|----------|
+| **Bug 1: Port Conflict (`EADDRINUSE`)** | Made port configurable via `process.env.PORT \|\| 3000` and attached `server.on("error", ...)` handler to print friendly guidance instead of crashing. |
+| **Bug 2: Wrong Import Path (`MODULE_NOT_FOUND`)** | Replaced erroneous relative path with proper installed module name `require("sqlite3")` and verified `package.json`. |
+| **Bug 3: Table-Name Typo (`no such table: books`)** | Aligned SQL queries to match the exact schema table name `book` (singular) rather than `books` (plural). |
+| **Bug 4: Missing `await` on Database Call** | Added the `await` keyword before async database calls (`await db.all(...)`) so execution waits for the promise to resolve rather than returning an empty object `{}`. |
+| **Render Linux GLIBC compatibility error** | Locked `sqlite3` to version `5.1.7` and specified Node LTS `20.18.0` in `.node-version`. |
+
+---
+
+## 🎓 Viva Questions & Answers
+
+| Question | Answer |
+| :--- | :--- |
+| **What is the difference between Path and Query parameters?** | Path parameters (`req.params`) form part of the URL path and identify a specific resource (e.g. `/books/1/`). Query parameters (`req.query`) appear after `?` in key-value pairs and filter, sort, search, or paginate a collection without altering the resource identity. |
+| **What does "Stateless" mean in REST architecture?** | Every HTTP request contains all context and credentials needed to fulfill it. The server stores no client session memory between requests, enabling horizontal scalability and seamless failover. |
+| **What is the difference between HTTP 400 and 404?** | HTTP 400 (Bad Request) indicates client data error (missing fields, negative price, invalid query parameter). HTTP 404 (Not Found) indicates a well-formed request where the target URI or ID does not exist on the server. |
+| **Why cannot SQL `ORDER BY` be parameterized with `?` placeholders?** | Placeholders only bind literal data values (strings, numbers). The SQL engine does not permit binding identifiers (columns, tables) or keywords (`ASC`/`DESC`). Whitelisting allowed column names in JavaScript is required to maintain security against SQL injection. |
+| **Why do parameterized queries prevent SQL injection?** | Parameterized queries separate SQL logic from user data. The database compiles the query syntax first and treats parameter inputs strictly as literal values, rendering SQL injection code inert. |
+
+---
+
+## ✅ Conclusion
+
+In this lab, I learned:
+
+1. **How to implement dynamic query parameters** (`search_q`, `order_by`, `order`, `limit`, `offset`, `min_price`, `max_price`) and build flexible SQL queries safely.
+2. **How to prevent SQL injection** through strict JavaScript whitelisting and parameterized placeholders (`?`).
+3. **How to enforce data validation** on request bodies and query parameters, returning consistent JSON error messages and proper status codes (200, 201, 400, 404, 500).
+4. **How to diagnose and resolve critical backend errors** (port conflicts, missing modules, table name mismatches, and unresolved asynchronous promises).
+5. **How to verify database state** with the SQLite CLI and automate testing using Postman collections.
+
+---
+
+## 👤 Author
+
+**S.S.M.Bharadwaj** – 252U1R1231 – CSE-CORE-2E
