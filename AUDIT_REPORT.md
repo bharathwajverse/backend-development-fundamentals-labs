@@ -1,8 +1,8 @@
-# Backend Development Fundamentals – Documentation & Repository Audit Report
+﻿# Backend Development Fundamentals â€“ Documentation & Repository Audit Report
 
 **Audit Date:** November 1, 2026  
 **Auditor:** Technical Documentation Engineer & Backend Architect  
-**Author / Student:** S.S.M.Bharadwaj (`252U1R1231`), Section: CSE-CORE-2E  
+**Author / Student:** S.S.M.Bharadwaj (`252U1R1236`), Section: CSE-CORE-2E  
 **Repository:** [https://github.com/bharathwajverse/backend-development-fundamentals-labs.git](https://github.com/bharathwajverse/backend-development-fundamentals-labs.git)
 
 ---
@@ -49,7 +49,7 @@ All documentation was aligned with the ground truth of the codebase. Placeholder
 During forensic analysis of the source code, several implementation anomalies were uncovered and logged:
 
 ### 1. Dual `app.listen(3000)` Call in `lab-02/server.js`
-- **Location:** `lab-02/server.js` lines 22–24 and line 126.
+- **Location:** `lab-02/server.js` lines 22â€“24 and line 126.
 - **Detail:** Line 22 starts the listener inside `initializeDBAndServer()` after SQLite opens. However, line 126 invokes `app.listen(3000)` synchronously at the root of the file.
 - **Impact:** Calling `app.listen(3000)` synchronously creates a race condition where incoming requests may hit route handlers before `db` is initialized (throwing unhandled null reference exceptions). Additionally, listening twice to the same port can throw an unhandled `EADDRINUSE` error depending on event loop scheduling.
 - **Remediation Recommendation:** Delete line 126 (`app.listen(3000);`) so the server listens exclusively inside the resolved `initializeDBAndServer` callback.
@@ -60,16 +60,16 @@ During forensic analysis of the source code, several implementation anomalies we
 - **Impact:** API consumers expecting standard `section` keys will encounter `undefined`.
 - **Documentation Action:** Transparently documented in `lab-01/README.md`.
 
-### 3. Port Mismatch in Labs 03–10 (`server.js` vs `.http` files)
+### 3. Port Mismatch in Labs 03â€“10 (`server.js` vs `.http` files)
 - **Location:** `lab-03` through `lab-10`.
 - **Detail:** In `server.js`, port binding is configured as `const PORT = process.env.PORT || 5002;`. However, in `lab-XX.http`, the base URL is set to `@baseUrl = http://localhost:3000`.
 - **Impact:** Running `.http` requests without a `.env` file setting `PORT=3000` causes connection refused (`ECONNREFUSED`) errors.
 - **Documentation Action:** Explicitly highlighted in all lab READMEs with guidance on configuring `.env` or adjusting `@baseUrl`.
 
-### 4. Phantom Endpoints in Previous Lab 03–10 Boilerplates
+### 4. Phantom Endpoints in Previous Lab 03â€“10 Boilerplates
 - **Location:** `lab-03/README.md` through `lab-10/README.md` (prior versions).
-- **Detail:** The previous boilerplate claimed that `/about` and `/time` were active endpoints returning student metadata and timestamps. In reality, `server.js` in labs 03–10 only defines `/` and `/api/health`.
-- **Documentation Action:** Corrected all endpoint tables to reflect actual code; classified labs 03–10 as **Starter Scaffolds**.
+- **Detail:** The previous boilerplate claimed that `/about` and `/time` were active endpoints returning student metadata and timestamps. In reality, `server.js` in labs 03â€“10 only defines `/` and `/api/health`.
+- **Documentation Action:** Corrected all endpoint tables to reflect actual code; classified labs 03â€“10 as **Starter Scaffolds**.
 
 ### 5. `node_modules/` Listed in Committed Project Structure Trees
 - **Location:** `lab-01/README.md` and `lab-03/README.md` through `lab-10/README.md`.
@@ -87,20 +87,20 @@ During forensic analysis of the source code, several implementation anomalies we
 
 ### Screenshots Audit
 - **Lab 01:**
-  - `home.png` – **Present & Verified** (`lab-01/screenshots/home.png`)
-  - `about.png` – **Present & Verified** (`lab-01/screenshots/about.png`)
-  - `time.png` – **Present & Verified** (`lab-01/screenshots/time.png`)
-  - `404.png` – **Present & Verified** (`lab-01/screenshots/404.png`)
+  - `home.png` â€“ **Present & Verified** (`lab-01/screenshots/home.png`)
+  - `about.png` â€“ **Present & Verified** (`lab-01/screenshots/about.png`)
+  - `time.png` â€“ **Present & Verified** (`lab-01/screenshots/time.png`)
+  - `404.png` â€“ **Present & Verified** (`lab-01/screenshots/404.png`)
 - **Lab 02:**
-  - `get-all-books.png` – **Missing** (directory `lab-02/screenshots/` does not exist in repo)
-  - `get-book-by-id.png` – **Missing**
-  - `post-book.png` – **Missing**
-  - `put-book.png` – **Missing**
-  - `delete-book.png` – **Missing**
-  - `database.png` – **Missing**
+  - `get-all-books.png` â€“ **Missing** (directory `lab-02/screenshots/` does not exist in repo)
+  - `get-book-by-id.png` â€“ **Missing**
+  - `post-book.png` â€“ **Missing**
+  - `put-book.png` â€“ **Missing**
+  - `delete-book.png` â€“ **Missing**
+  - `database.png` â€“ **Missing**
   *(Documentation Note: In previous README version, broken Markdown image links were pointing to non-existent files. These broken links were removed and replaced with an explicit pending notice).*
 - **Lab 03:**
-  - `01-get-all-books-default.png` through `16-debug-missing-await.png` (16 total images) – **Present & Verified** in `lab-03/screenshots/` covering all query parameter filters, CRUD operations, validation failures, 404 handler, SQLite CLI queries, and debugging bug resolutions.
+  - `01-get-all-books-default.png` through `16-debug-missing-await.png` (16 total images) â€“ **Present & Verified** in `lab-03/screenshots/` covering all query parameter filters, CRUD operations, validation failures, 404 handler, SQLite CLI queries, and debugging bug resolutions.
 - **Labs 04 through 10:**
   - Screenshots are **not present**. Documented as pending subsequent coursework.
 
