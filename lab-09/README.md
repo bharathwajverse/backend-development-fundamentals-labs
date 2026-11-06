@@ -1,4 +1,4 @@
-# Lab 09: API Integration & Advanced Querying Foundation
+﻿# Lab 09: API Integration & Advanced Querying Foundation
 
 ## Lab Details
 
@@ -11,7 +11,7 @@
 ## Student Details
 
 - **Name:** S.S.M.Bharadwaj
-- **Registration Number:** 252U1R1231
+- **Registration Number:** 252U1R1236
 - **Section:** CSE-CORE-2E
 
 ---
@@ -40,12 +40,12 @@ Lab 09 outlines backend communication patterns with external third-party web ser
 
 ```text
 lab-09/
-├── .gitignore           # Excludes dependencies, environment files, and logs
-├── lab-09.http          # REST Client request suite
-├── package.json         # Package definitions and npm scripts
-├── package-lock.json    # Exact dependency tree lockfile
-├── README.md            # Lab 09 technical documentation
-└── server.js            # Express server entry point
+â”œâ”€â”€ .gitignore           # Excludes dependencies, environment files, and logs
+â”œâ”€â”€ lab-09.http          # REST Client request suite
+â”œâ”€â”€ package.json         # Package definitions and npm scripts
+â”œâ”€â”€ package-lock.json    # Exact dependency tree lockfile
+â”œâ”€â”€ README.md            # Lab 09 technical documentation
+â””â”€â”€ server.js            # Express server entry point
 ```
 
 ---

@@ -1,4 +1,4 @@
-# Lab 10: Production Readiness & Deployment Foundation
+﻿# Lab 10: Production Readiness & Deployment Foundation
 
 ## Lab Details
 
@@ -11,7 +11,7 @@
 ## Student Details
 
 - **Name:** S.S.M.Bharadwaj
-- **Registration Number:** 252U1R1231
+- **Registration Number:** 252U1R1236
 - **Section:** CSE-CORE-2E
 
 ---
@@ -40,12 +40,12 @@ Lab 10 represents the capstone module of the laboratory sequence, focusing on pr
 
 ```text
 lab-10/
-├── .gitignore           # Excludes dependencies, environment files, and logs
-├── lab-10.http          # REST Client request suite
-├── package.json         # Package definitions and npm scripts
-├── package-lock.json    # Exact dependency tree lockfile
-├── README.md            # Lab 10 technical documentation
-└── server.js            # Express server entry point
+â”œâ”€â”€ .gitignore           # Excludes dependencies, environment files, and logs
+â”œâ”€â”€ lab-10.http          # REST Client request suite
+â”œâ”€â”€ package.json         # Package definitions and npm scripts
+â”œâ”€â”€ package-lock.json    # Exact dependency tree lockfile
+â”œâ”€â”€ README.md            # Lab 10 technical documentation
+â””â”€â”€ server.js            # Express server entry point
 ```
 
 ---

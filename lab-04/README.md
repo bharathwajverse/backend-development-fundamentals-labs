@@ -1,4 +1,4 @@
-# Lab 04: Middleware & Request Processing Foundation
+﻿# Lab 04: Middleware & Request Processing Foundation
 
 ## Lab Details
 
@@ -11,7 +11,7 @@
 ## Student Details
 
 - **Name:** S.S.M.Bharadwaj
-- **Registration Number:** 252U1R1231
+- **Registration Number:** 252U1R1236
 - **Section:** CSE-CORE-2E
 
 ---
@@ -40,12 +40,12 @@ Lab 04 provides a foundational Express.js application designed to demonstrate th
 
 ```text
 lab-04/
-├── .gitignore           # Excludes dependencies, environment files, and logs
-├── lab-04.http          # REST Client request suite
-├── package.json         # Package definitions and npm scripts
-├── package-lock.json    # Exact dependency tree lockfile
-├── README.md            # Lab 04 technical documentation
-└── server.js            # Express server and middleware implementation
+â”œâ”€â”€ .gitignore           # Excludes dependencies, environment files, and logs
+â”œâ”€â”€ lab-04.http          # REST Client request suite
+â”œâ”€â”€ package.json         # Package definitions and npm scripts
+â”œâ”€â”€ package-lock.json    # Exact dependency tree lockfile
+â”œâ”€â”€ README.md            # Lab 04 technical documentation
+â””â”€â”€ server.js            # Express server and middleware implementation
 ```
 
 ---
@@ -162,7 +162,7 @@ A test suite is provided in [`lab-04.http`](./lab-04.http):
 ## 10. Viva Voce Preparation
 
 ### Q1: What is middleware in Express and what arguments does a standard middleware function receive?
-> **Answer:** Middleware functions in Express are functions that have access to the request object (`req`), the response object (`res`), and the `next` middleware function in the application’s request-response cycle. They can execute arbitrary code, modify `req` and `res`, end the request-response cycle, or call `next()` to pass control to the next handler.
+> **Answer:** Middleware functions in Express are functions that have access to the request object (`req`), the response object (`res`), and the `next` middleware function in the applicationâ€™s request-response cycle. They can execute arbitrary code, modify `req` and `res`, end the request-response cycle, or call `next()` to pass control to the next handler.
 
 ### Q2: What happens if a middleware function neither ends the response cycle nor calls `next()`?
 > **Answer:** The request is left hanging indefinitely in an unresolved state, eventually resulting in a client connection timeout.

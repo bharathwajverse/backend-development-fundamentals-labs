@@ -1,4 +1,4 @@
-# Lab 06: Data Validation & Error Handling Foundation
+﻿# Lab 06: Data Validation & Error Handling Foundation
 
 ## Lab Details
 
@@ -11,7 +11,7 @@
 ## Student Details
 
 - **Name:** S.S.M.Bharadwaj
-- **Registration Number:** 252U1R1231
+- **Registration Number:** 252U1R1236
 - **Section:** CSE-CORE-2E
 
 ---
@@ -40,12 +40,12 @@ Lab 06 lays the structural foundation for server-side payload validation, saniti
 
 ```text
 lab-06/
-├── .gitignore           # Excludes dependencies, environment files, and logs
-├── lab-06.http          # REST Client request suite
-├── package.json         # Package definitions and npm scripts
-├── package-lock.json    # Exact dependency tree lockfile
-├── README.md            # Lab 06 technical documentation
-└── server.js            # Express server and error handling entry point
+â”œâ”€â”€ .gitignore           # Excludes dependencies, environment files, and logs
+â”œâ”€â”€ lab-06.http          # REST Client request suite
+â”œâ”€â”€ package.json         # Package definitions and npm scripts
+â”œâ”€â”€ package-lock.json    # Exact dependency tree lockfile
+â”œâ”€â”€ README.md            # Lab 06 technical documentation
+â””â”€â”€ server.js            # Express server and error handling entry point
 ```
 
 ---
