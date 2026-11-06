@@ -88,13 +88,22 @@ backend-development-fundamentals-labs/
 │   ├── package-lock.json
 │   ├── README.md
 │   └── server.js
-├── lab-03/                  # Lab 03: Architecture & Middleware (Starter Scaffold)
+├── lab-03/                  # Lab 03: REST API, Query Parameters & Debugging (Complete)
+│   ├── debug-exercise/
+│   │   ├── DEBUGGING.md     # 4 deliberate bug root-cause and fix analyses
+│   │   └── server-broken.js # Broken server code for debugging lab
+│   ├── postman/
+│   │   └── Lab3.postman_collection.json # 21 test scenarios
+│   ├── screenshots/         # 16 verification screenshots
+│   ├── .env.example
 │   ├── .gitignore
-│   ├── lab-03.http
+│   ├── .node-version
+│   ├── database.db          # SQLite database with 15 seeded books
+│   ├── lab-03.http          # Declarative REST Client test scenarios
 │   ├── package.json
 │   ├── package-lock.json
-│   ├── README.md
-│   └── server.js
+│   ├── README.md            # Comprehensive Lab 3 documentation
+│   └── server.js            # Express server with query params, validation & error handling
 ├── lab-04/                  # Lab 04: Request Processing (Starter Scaffold)
 │   ├── .gitignore
 │   ├── lab-04.http
@@ -156,7 +165,7 @@ The table below provides a comprehensive summary of all ten laboratory modules, 
 | :---: | :--- | :--- | :--- | :---: | :---: |
 | **01** | Node.js and Express Server | Node.js, Express 5, Nodemon | `GET /`, `GET /about`, `GET /time`, 404 fallback routing | [README](./lab-01/README.md) | **Completed** |
 | **02** | SQLite Database & CRUD Routes | Node.js, Express 5, SQLite3, sqlite, Nodemon | Full REST CRUD (`GET /books/`, `GET /books/:id/`, `POST /books/`, `PUT /books/:id/`, `DELETE /books/:id/`) with SQL injection prevention | [README](./lab-02/README.md) | **Completed** |
-| **03** | Architecture & Middleware | Node.js, Express 5, CORS, Dotenv | Base Express server, CORS policy, JSON/URL-encoded parsing, `GET /`, `GET /api/health`, 404 handler | [README](./lab-03/README.md) | **Starter Scaffold** |
+| **03** | REST API, Query Parameters & Debugging | Node.js, Express 5, SQLite3, sqlite, Nodemon | Query filtering (search_q, sort, order, limit, offset, min/max price), strict body validation, 201/200/400/404 status codes, debugging exercise | [README](./lab-03/README.md) | **Completed** |
 | **04** | Request Processing | Node.js, Express 5, CORS, Dotenv | Middleware pipeline architecture, `GET /`, `GET /api/health`, 404 handler | [README](./lab-04/README.md) | **Starter Scaffold** |
 | **05** | RESTful Routing | Node.js, Express 5, CORS, Dotenv | Modular route structure foundation, `GET /`, `GET /api/health`, 404 handler | [README](./lab-05/README.md) | **Starter Scaffold** |
 | **06** | Data Validation & Errors | Node.js, Express 5, CORS, Dotenv | Payload validation base, `GET /`, `GET /api/health`, 404 handler | [README](./lab-06/README.md) | **Starter Scaffold** |
@@ -207,7 +216,8 @@ npm run dev
 ### Port Allocation Reference (Based on Actual Code)
 - **Lab 01:** Port `3000` (`app.listen(3000)`)
 - **Lab 02:** Port `3000` (`app.listen(3000)`)
-- **Labs 03 through 10:** Defaults to Port `5002` (`process.env.PORT || 5002`). Can be configured via `.env` file (e.g. `PORT=3000`).
+- **Lab 03:** Port `3000` (`process.env.PORT || 3000`)
+- **Labs 04 through 10:** Defaults to Port `5002` (`process.env.PORT || 5002`). Can be configured via `.env` file (e.g. `PORT=3000`).
 
 ---
 
