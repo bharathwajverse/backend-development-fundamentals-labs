@@ -1,4 +1,4 @@
-# Lab 1: Node.js and Express Server
+﻿# Lab 1: Node.js and Express Server
 
 ## Lab Details
 
@@ -10,7 +10,7 @@
 ## Student Details
 
 - **Name:** S.S.M.Bharadwaj
-- **Registration Number:** 252U1R1231
+- **Registration Number:** 252U1R1236
 - **Section:** CSE-CORE-2E
 
 ---
@@ -36,17 +36,17 @@ The objective of this lab is to establish an isolated Node.js development enviro
 
 ```text
 lab-01/
-├── screenshots/         # Verified route execution evidence
-│   ├── 404.png          # Route not found response
-│   ├── about.png        # Student metadata response
-│   ├── home.png         # Root greeting response
-│   └── time.png         # Server timestamp response
-├── .gitignore           # Ignores node_modules, .env, and logs
-├── lab-01.http          # Declarative HTTP test requests
-├── package.json         # Project metadata, scripts, and dependencies
-├── package-lock.json    # Deterministic dependency lockfile
-├── README.md            # Lab documentation and specifications
-└── server.js            # Express server implementation
+â”œâ”€â”€ screenshots/         # Verified route execution evidence
+â”‚   â”œâ”€â”€ 404.png          # Route not found response
+â”‚   â”œâ”€â”€ about.png        # Student metadata response
+â”‚   â”œâ”€â”€ home.png         # Root greeting response
+â”‚   â””â”€â”€ time.png         # Server timestamp response
+â”œâ”€â”€ .gitignore           # Ignores node_modules, .env, and logs
+â”œâ”€â”€ lab-01.http          # Declarative HTTP test requests
+â”œâ”€â”€ package.json         # Project metadata, scripts, and dependencies
+â”œâ”€â”€ package-lock.json    # Deterministic dependency lockfile
+â”œâ”€â”€ README.md            # Lab documentation and specifications
+â””â”€â”€ server.js            # Express server implementation
 ```
 
 ---
