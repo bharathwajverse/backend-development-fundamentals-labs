@@ -1,7 +1,7 @@
-### ==============================================================================
+﻿### ==============================================================================
 ### REST Client - Lab 03 REST API, Query Parameters, Validation & Debugging Tests
 ### Extension: REST Client (Huachao Mao)
-### Student: S.S.M.Bharadwaj | 252U1R1231 | CSE-CORE-2E
+### Student: S.S.M.Bharadwaj | 252U1R1236 | CSE-CORE-2E
 ### ==============================================================================
 
 @baseUrl = http://localhost:3000

@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "a9b1c2d3-e4f5-4678-9012-3456789abcde",
     "name": "Lab 3 - REST API & Query Parameters (S.S.M.Bharadwaj)",
-    "description": "Postman Collection for Lab 3: REST API, Query Parameters, Validation, and Debugging. Student: S.S.M.Bharadwaj (252U1R1231).",
+    "description": "Postman Collection for Lab 3: REST API, Query Parameters, Validation, and Debugging. Student: S.S.M.Bharadwaj (252U1R1236).",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
