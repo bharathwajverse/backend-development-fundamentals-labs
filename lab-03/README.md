@@ -1,15 +1,15 @@
-# Lab 3: REST API, Query Parameters, Validation, and Debugging
+﻿# Lab 3: REST API, Query Parameters, Validation, and Debugging
 
-> **🔗 Live Deployment URL:** [https://bharathwajverse-lab03.onrender.com](https://bharathwajverse-lab03.onrender.com) *(Locally Verified at http://localhost:3000)*
+> **ðŸ”— Live Deployment URL:** [https://bharathwajverse-lab03.onrender.com](https://bharathwajverse-lab03.onrender.com) *(Locally Verified at http://localhost:3000)*
 
 ---
 
-## 📋 Student Information
+## ðŸ“‹ Student Information
 
 | Field | Details |
 |-------|---------|
 | **Name** | S.S.M.Bharadwaj |
-| **Registration Number** | 252U1R1231 |
+| **Registration Number** | 252U1R1236 |
 | **Section** | CSE-CORE-2E |
 | **Course** | Backend Development Fundamentals |
 | **Faculty** | Joel Prashanth D |
@@ -17,13 +17,13 @@
 
 ---
 
-## 🎯 Objective
+## ðŸŽ¯ Objective
 
 Build a production-ready Node.js and Express RESTful API with SQLite database integration. Implement advanced query parameter features on `GET /books/` (search, ordering, direction, pagination, and price range filters), enforce strict request payload validation with consistent JSON error responses, apply whitelisting and parameterized queries (`?`) to prevent SQL injection, and analyze deliberate server bugs in a dedicated debugging module.
 
 ---
 
-## 🛠️ Technologies Used
+## ðŸ› ï¸ Technologies Used
 
 | Technology | Purpose |
 |------------|---------|
@@ -38,7 +38,7 @@ Build a production-ready Node.js and Express RESTful API with SQLite database in
 
 ---
 
-## 🗄️ Database Structure
+## ðŸ—„ï¸ Database Structure
 
 **Database File:** `database.db`
 
@@ -54,7 +54,7 @@ Build a production-ready Node.js and Express RESTful API with SQLite database in
 
 ### Sample Data (15 Books)
 
-| ID | Title | Author | Price (₹) | Pages |
+| ID | Title | Author | Price (â‚¹) | Pages |
 |----|-------|--------|-----------|-------|
 | 1 | The Pragmatic Programmer | David Thomas, Andrew Hunt | 750 | 352 |
 | 2 | Clean Code | Robert C. Martin | 650 | 464 |
@@ -74,7 +74,7 @@ Build a production-ready Node.js and Express RESTful API with SQLite database in
 
 ---
 
-## 🔌 Database Initialization
+## ðŸ”Œ Database Initialization
 
 The asynchronous initialization routine `initializeDBAndServer()` executes at startup:
 
@@ -86,7 +86,7 @@ The asynchronous initialization routine `initializeDBAndServer()` executes at st
 
 ---
 
-## ⚙️ Installation & Setup
+## âš™ï¸ Installation & Setup
 
 ### Prerequisites
 
@@ -125,7 +125,7 @@ The asynchronous initialization routine `initializeDBAndServer()` executes at st
 
 ---
 
-## 📡 API Endpoints
+## ðŸ“¡ API Endpoints
 
 | Method | Path | Local Test URL | Description | Status Code |
 |:---|:---|:---|:---|:---|
@@ -139,7 +139,7 @@ The asynchronous initialization routine `initializeDBAndServer()` executes at st
 
 ---
 
-## 🔍 Query Parameters on GET /books/
+## ðŸ” Query Parameters on GET /books/
 
 All query parameters are optional and have built-in default values. They can be utilized individually or combined:
 
@@ -155,7 +155,7 @@ All query parameters are optional and have built-in default values. They can be 
 
 ---
 
-## 📝 Sample Request Bodies
+## ðŸ“ Sample Request Bodies
 
 ### POST /books/ (Add a new book)
 ```json
@@ -179,7 +179,7 @@ All query parameters are optional and have built-in default values. They can be 
 
 ---
 
-## 📤 Expected Responses
+## ðŸ“¤ Expected Responses
 
 ### GET /books/ (Default list: 10 books)
 ```json
@@ -245,7 +245,7 @@ All query parameters are optional and have built-in default values. They can be 
 
 ---
 
-## 🛡️ SQL Injection Prevention & Whitelisting
+## ðŸ›¡ï¸ SQL Injection Prevention & Whitelisting
 
 Security is maintained through two strict mechanisms:
 
@@ -271,7 +271,7 @@ Security is maintained through two strict mechanisms:
 
 ---
 
-## 🧪 Postman & REST Client Test Suite Verification
+## ðŸ§ª Postman & REST Client Test Suite Verification
 
 A comprehensive collection of 21 test scenarios was executed against the API. Both a Postman collection at [`postman/Lab3.postman_collection.json`](postman/Lab3.postman_collection.json) and a native declarative VS Code REST Client file at [`lab-03.http`](lab-03.http) are provided.
 
@@ -301,7 +301,7 @@ A comprehensive collection of 21 test scenarios was executed against the API. Bo
 
 ---
 
-## 🧪 SQLite CLI Verification
+## ðŸ§ª SQLite CLI Verification
 
 To verify database operations directly at the database level:
 
@@ -332,7 +332,7 @@ SELECT id, title FROM book WHERE id = 15;
 
 ---
 
-## 📸 Screenshots
+## ðŸ“¸ Screenshots
 
 ### 1. GET All Books Default (GET /books/)
 - **Expected HTTP Status:** `200 OK`
@@ -406,14 +406,14 @@ SELECT id, title FROM book WHERE id = 15;
 
 ---
 
-## 🚀 Deployment on Render
+## ðŸš€ Deployment on Render
 
 ### Steps to Deploy
 
 1. **Sign up** on [Render](https://render.com/) using your GitHub account.
 
 2. **Create a New Web Service:**
-   - Click **"New +"** → **"Web Service"**
+   - Click **"New +"** â†’ **"Web Service"**
    - Connect your GitHub repository: `bharathwajverse/backend-development-fundamentals-labs`
 
 3. **Configure the Service:**
@@ -442,7 +442,7 @@ SELECT id, title FROM book WHERE id = 15;
 
 ---
 
-## ❗ Problems Faced and Solutions (Debugging Exercise)
+## â— Problems Faced and Solutions (Debugging Exercise)
 
 | Problem | Solution |
 |---------|----------|
@@ -454,7 +454,7 @@ SELECT id, title FROM book WHERE id = 15;
 
 ---
 
-## 🎓 Viva Questions & Answers
+## ðŸŽ“ Viva Questions & Answers
 
 | Question | Answer |
 | :--- | :--- |
@@ -466,7 +466,7 @@ SELECT id, title FROM book WHERE id = 15;
 
 ---
 
-## ✅ Conclusion
+## âœ… Conclusion
 
 In this lab, I learned:
 
@@ -478,6 +478,6 @@ In this lab, I learned:
 
 ---
 
-## 👤 Author
+## ðŸ‘¤ Author
 
-**S.S.M.Bharadwaj** – 252U1R1231 – CSE-CORE-2E
+**S.S.M.Bharadwaj** â€“ 252U1R1236 â€“ CSE-CORE-2E

@@ -1,7 +1,7 @@
-# Lab 3: Debugging Exercise & Troubleshooting Guide
+﻿# Lab 3: Debugging Exercise & Troubleshooting Guide
 
 **Student Name:** S.S.M.Bharadwaj  
-**Registration Number:** 252U1R1231  
+**Registration Number:** 252U1R1236  
 **Section:** CSE-CORE-2E  
 **Subject:** Backend Development Fundamentals  
 **Faculty:** Joel Prashanth D  
