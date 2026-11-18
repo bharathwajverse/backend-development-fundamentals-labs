@@ -63,3 +63,4 @@
 - **[052] `test(lab-04)`:** verify REST Client scenario 2: duplicate POST /register returns 400
 - **[053] `test(lab-04)`:** verify REST Client scenario 3: valid POST /login issues signed JWT (200)
 - **[054] `test(lab-04)`:** verify REST Client scenario 4: unknown username POST /login returns 400
+- **[055] `test(lab-04)`:** verify REST Client scenario 5: wrong password POST /login returns 400
