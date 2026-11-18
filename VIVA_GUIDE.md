@@ -1,8 +1,9 @@
-﻿# Backend Development Fundamentals â€“ Master Viva Voce Preparation Guide
+﻿# Backend Development Fundamentals – Master Viva Voce Preparation Guide
 
 **Subject:** Backend Development Fundamentals  
 **Academic Context:** Year II, Term II  
-**Author:** S.S.M.Bharadwaj (`252U1R1236`), Section: CSE-CORE-2E  
+**Author:** S.S.M.BHARADWAJ (`252U1R1236`), Section: CSE-CORE-2E  
+**Faculty:** Mr Yugandhar Gurjalwar  
 
 ---
 
@@ -52,11 +53,27 @@
 
 ### Q11: What are the standard HTTP status codes used in RESTful APIs?
 > **Answer:**
-> - `200 OK`: Request succeeded (GET, PUT, DELETE).
-> - `201 Created`: Resource successfully created (POST).
-> - `400 Bad Request`: Client sent malformed request syntax or invalid parameters.
+> - `200 OK`: Request succeeded (GET, PUT, DELETE, Login).
+> - `201 Created`: Resource successfully created (POST register/book).
+> - `400 Bad Request`: Client sent malformed payload, invalid credentials, or duplicate username.
 > - `404 Not Found`: Targeted route or resource identifier does not exist.
 > - `500 Internal Server Error`: Unhandled server-side exception occurred.
 
 ### Q12: What is Cross-Origin Resource Sharing (CORS)?
 > **Answer:** CORS is a browser security policy that restricts web clients loaded from one origin domain from querying an API hosted on a different origin domain. The `cors()` middleware configures HTTP response headers (such as `Access-Control-Allow-Origin: *`) allowing authorized client origins to make cross-origin requests.
+
+---
+
+## 5. Authentication, Password Hashing & JWT (Lab 04)
+
+### Q13: Why must HTTP `POST` be used for login instead of `GET`?
+> **Answer:** `GET` requests append parameters to the URL query string, exposing passwords in plain text across browser histories, server access logs, proxy logs, and `Referer` headers. `POST` sends credentials inside the HTTP request body, which is encrypted in transit over HTTPS and excluded from URL logs.
+
+### Q14: What is the difference between Hashing and Encryption?
+> **Answer:** **Hashing** (`bcrypt`) is a one-way cryptographic transformation that produces a fixed-length digest that cannot be reversed back to plain text—ideal for password storage. **Encryption** is two-way and reversible with a key; encrypting passwords creates a single point of failure where leaking the key exposes every password in the database.
+
+### Q15: What does `jwt.sign()` require?
+> **Answer:** `jwt.sign(payload, secretKey, options?)` requires: (1) a **payload** object of non-sensitive claims (e.g., `{ username }`), (2) a **secret key** used to compute the HMAC-SHA256 signature, and optionally (3) an **options** object (e.g., `{ expiresIn: '1h' }`).
+
+### Q16: What should NEVER go into a JWT payload?
+> **Answer:** Never place passwords, password hashes, secret keys, credit card numbers, or sensitive PII in a JWT payload. The payload is only Base64URL-encoded—not encrypted—so anyone holding the token can decode and read it immediately (e.g., via `jwt.io`).
