@@ -80,3 +80,4 @@
 - **[069] `test(lab-04)`:** verify Postman request 03 POST /register 201 creation check
 - **[070] `test(lab-04)`:** verify Postman request 04 POST /register 400 duplicate check
 - **[071] `test(lab-04)`:** verify Postman request 05 POST /register 400 validation check
+- **[072] `test(lab-04)`:** verify Postman request 06 GET /login metadata check
