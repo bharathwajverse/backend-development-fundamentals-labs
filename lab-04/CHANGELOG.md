@@ -40,3 +40,4 @@
 - **[029] `feat(lab-04)`:** return 201 Created response User registered successfully upon account creation
 - **[030] `feat(lab-04)`:** wrap POST /register handler in try-catch returning 500 on unexpected failure
 - **[031] `feat(lab-04)`:** implement GET /login helper endpoint with sample JSON login payload
+- **[032] `feat(lab-04)`:** implement POST /login request destructuring for username and password
