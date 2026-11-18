@@ -27,3 +27,4 @@
 - **[016] `feat(lab-04)`:** configure dynamic port binding via process.env.PORT || 3000 for Render
 - **[017] `feat(lab-04)`:** add fail-fast database initialization error handler exiting with code 1
 - **[018] `feat(lab-04)`:** implement GET / root endpoint returning Lab 4 title and Online status
+- **[019] `feat(lab-04)`:** populate student metadata S.S.M.BHARADWAJ and 252U1R1236 in root response
