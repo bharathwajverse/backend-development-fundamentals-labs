@@ -70,3 +70,4 @@
 - **[059] `test(lab-04)`:** verify automated assertion 3: POST /register inserts new account with 201
 - **[060] `test(lab-04)`:** verify automated assertion 4: duplicate POST /register rejected with 400
 - **[061] `test(lab-04)`:** verify automated assertion 5: incomplete POST /register rejected with 400
+- **[062] `test(lab-04)`:** verify automated assertion 6: POST /login JWT verifies with MY_SECRET_KEY
