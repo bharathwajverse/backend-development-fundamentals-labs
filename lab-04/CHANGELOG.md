@@ -45,3 +45,4 @@
 - **[034] `feat(lab-04)`:** look up login account via parameterized SELECT * FROM user WHERE username = ?
 - **[035] `feat(lab-04)`:** reject unregistered usernames with 400 Invalid username
 - **[036] `feat(lab-04)`:** verify incoming password against stored hash using async bcrypt.compare
+- **[037] `feat(lab-04)`:** reject mismatched passwords with 400 Invalid password
