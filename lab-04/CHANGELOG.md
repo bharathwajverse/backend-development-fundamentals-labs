@@ -90,3 +90,4 @@
 - **[079] `docs(lab-04)`:** verify screenshot 03 displays 400 Bad Request duplicate rejection
 - **[080] `docs(lab-04)`:** verify screenshot 04 displays 200 OK signed HS256 jwt_token response
 - **[081] `docs(lab-04)`:** verify screenshot 05 displays 400 Invalid username rejection
+- **[082] `docs(lab-04)`:** verify screenshot 06 displays 400 Invalid password rejection
