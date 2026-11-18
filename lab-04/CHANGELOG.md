@@ -106,3 +106,4 @@
 - **[095] `docs(lab-04)`:** cross-check Viva Q5: bcrypt cryptographic salt and cost factor rounds
 - **[096] `docs(lab-04)`:** document database schema and modular crypt format formula in README
 - **[097] `docs(lab-04)`:** document SQLite CLI inspection commands and verified tabular output
+- **[098] `docs(lab-04)`:** document troubleshooting notes for native addons and SQLITE_CANTOPEN
