@@ -95,3 +95,4 @@
 - **[084] `docs(lab-04)`:** verify screenshot 08 displays jwt.io decoded header, payload, and green B avatar
 - **[085] `docs(lab-04)`:** verify screenshot 09 displays lab-04.http test suite and 9/9 test pass
 - **[086] `docs(lab-04)`:** verify screenshot 10 displays clean server.js register and login code
+- **[087] `docs(lab-04)`:** cross-check student attribution S.S.M.BHARADWAJ across Lab 4 README
