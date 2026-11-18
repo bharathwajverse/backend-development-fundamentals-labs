@@ -46,3 +46,4 @@
 - **[035] `feat(lab-04)`:** reject unregistered usernames with 400 Invalid username
 - **[036] `feat(lab-04)`:** verify incoming password against stored hash using async bcrypt.compare
 - **[037] `feat(lab-04)`:** reject mismatched passwords with 400 Invalid password
+- **[038] `feat(lab-04)`:** construct minimal JWT identity payload containing strictly { username }
