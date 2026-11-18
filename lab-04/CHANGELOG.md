@@ -47,3 +47,4 @@
 - **[036] `feat(lab-04)`:** verify incoming password against stored hash using async bcrypt.compare
 - **[037] `feat(lab-04)`:** reject mismatched passwords with 400 Invalid password
 - **[038] `feat(lab-04)`:** construct minimal JWT identity payload containing strictly { username }
+- **[039] `feat(lab-04)`:** sign stateless HS256 JWT token via jwt.sign(payload, secretKey)
