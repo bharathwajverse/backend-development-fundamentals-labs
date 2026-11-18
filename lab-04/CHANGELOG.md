@@ -49,3 +49,4 @@
 - **[038] `feat(lab-04)`:** construct minimal JWT identity payload containing strictly { username }
 - **[039] `feat(lab-04)`:** sign stateless HS256 JWT token via jwt.sign(payload, secretKey)
 - **[040] `feat(lab-04)`:** return 200 OK JSON response { jwt_token } upon verified login
+- **[041] `feat(lab-04)`:** wrap POST /login handler in try-catch returning 500 Unable to login on error
