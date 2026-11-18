@@ -15,3 +15,4 @@
 - **[004] `chore(lab-04)`:** configure npm test script invoking automated test-runner.js
 - **[005] `chore(lab-04)`:** validate .gitignore rules for node_modules, .env, logs, and users.db
 - **[006] `chore(lab-04)`:** verify .node-version runtime pin matches package.json engines field
+- **[007] `chore(lab-04)`:** verify .env.example excludes all production secrets and keys
