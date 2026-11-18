@@ -114,3 +114,4 @@
 - **[103] `deploy(lab-04)`:** verify Render Blueprint render.yaml syntax and service metadata
 - **[104] `ci(lab-04)`:** integrate test-lab-04 workflow job into GitHub Actions verify-labs.yml
 - **[105] `ci(lab-04)`:** verify GitHub Actions Node 20 runner executes lab-04 npm test cleanly
+- **[106] `docs(root)`:** align root README badges with bcrypt and JWT authentication stack
