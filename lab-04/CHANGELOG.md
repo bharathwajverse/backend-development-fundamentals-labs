@@ -108,3 +108,4 @@
 - **[097] `docs(lab-04)`:** document SQLite CLI inspection commands and verified tabular output
 - **[098] `docs(lab-04)`:** document troubleshooting notes for native addons and SQLITE_CANTOPEN
 - **[099] `deploy(lab-04)`:** configure Render service name backend-development-fundamentals-labs-app
+- **[100] `deploy(lab-04)`:** configure Render root directory lab-04 for monorepo isolation
