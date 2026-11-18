@@ -109,3 +109,4 @@
 - **[098] `docs(lab-04)`:** document troubleshooting notes for native addons and SQLITE_CANTOPEN
 - **[099] `deploy(lab-04)`:** configure Render service name backend-development-fundamentals-labs-app
 - **[100] `deploy(lab-04)`:** configure Render root directory lab-04 for monorepo isolation
+- **[101] `deploy(lab-04)`:** configure Render Node runtime with NODE_VERSION=20.18.0
