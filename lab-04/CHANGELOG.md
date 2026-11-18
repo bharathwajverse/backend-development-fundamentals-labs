@@ -75,3 +75,4 @@
 - **[064] `test(lab-04)`:** verify automated assertion 8: POST /login wrong password rejected with 400
 - **[065] `test(lab-04)`:** verify automated assertion 9: 404 fallback and SQLite $2b$10$ hash validation
 - **[066] `test(lab-04)`:** verify Postman collection variables baseUrl and renderUrl
+- **[067] `test(lab-04)`:** verify Postman request 01 GET / status check
