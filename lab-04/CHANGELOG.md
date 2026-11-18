@@ -59,3 +59,4 @@
 - **[048] `security(lab-04)`:** verify HS256 JWT signature tampering detection via jwt.verify
 - **[049] `security(lab-04)`:** verify all SQL queries strictly use ? parameter binding against SQL injection
 - **[050] `security(lab-04)`:** verify login uses HTTP POST body rather than GET query parameters
+- **[051] `test(lab-04)`:** verify REST Client scenario 1: POST /register creates bharadwaj_ssm (201)
