@@ -31,3 +31,4 @@
 - **[020] `feat(lab-04)`:** populate section CSE-CORE-2E and faculty Mr Yugandhar Gurjalwar in root response
 - **[021] `feat(lab-04)`:** document register and login POST paths in root JSON discovery object
 - **[022] `feat(lab-04)`:** implement GET /register helper endpoint with sample JSON registration payload
+- **[023] `feat(lab-04)`:** implement POST /register request destructuring for username, name, and password
