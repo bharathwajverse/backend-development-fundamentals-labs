@@ -6,30 +6,34 @@ This repository maintains academic lab implementations for the **Backend Develop
 
 | Component | Protection Mechanism | Status |
 | :--- | :--- | :---: |
-| **SQL Database Operations** | Parameterized SQL Queries (`?` placeholders) | Active (`lab-02`) |
-| **Environment Variables** | Secret exclusion via `.gitignore` (`.env`, `.env.local`) | Active (All labs) |
+| **SQL Database Operations** | Parameterized SQL Queries (`?` placeholders) | Active (`lab-02`, `lab-03`, `lab-04`) |
+| **Password Storage** | One-way salted bcrypt hashing (`bcrypt.hash(password, 10)`) | Active (`lab-04`) |
+| **Stateless Authentication** | Signed HS256 JWT tokens with non-sensitive `{ username }` payload | Active (`lab-04`) |
+| **Environment Variables** | Secret exclusion via `.gitignore` (`.env`, `.env.local`, `database/*.db`) | Active (All labs) |
 | **Dependencies** | Dependency isolation and lockfiles (`package-lock.json`) | Active (All labs) |
-| **CORS Policy** | Whitelist / Origin isolation via `cors` middleware | Active (`lab-03`–`lab-10`) |
-| **Payload Parsing** | Body parser byte limit protection via Express built-ins | Active (All labs) |
+| **CORS Policy** | Origin access control via `cors` middleware | Active (`lab-05`–`lab-10`) |
 
 ---
 
 ## 2. Defensive Coding Practices
 
 ### SQL Injection Prevention
-In `lab-02`, database operations interact with SQLite. To prevent SQL injection:
-- String interpolation (e.g. `` `SELECT * FROM book WHERE id = ${id}` ``) is strictly prohibited.
-- Parameterized queries with `?` placeholders are used across all read, insert, update, and delete queries:
+Database operations across `lab-02`, `lab-03`, and `lab-04` interact with SQLite strictly using parameterized prepared statements:
+- String interpolation (e.g. `` `SELECT * FROM user WHERE username = '${username}'` ``) is strictly prohibited.
+- Parameterized queries with `?` placeholders are enforced across all queries:
   ```javascript
-  const getBookQuery = `SELECT * FROM book WHERE id = ?;`;
-  const book = await db.get(getBookQuery, [bookId]);
+  const selectUserQuery = 'SELECT * FROM user WHERE username = ?;'
+  const existingUser = await db.get(selectUserQuery, [username])
   ```
-- The SQLite query engine compiles the SQL command structure independently before parameter values are bound, ensuring user inputs are treated solely as literal data.
+
+### Password Hashing & JWT Security (`lab-04`)
+- Passwords are **never** stored, logged, or returned in plain text.
+- Every password is hashed with `bcrypt.hash(password, 10)` ($2^{10} = 1024$ rounds with automatic per-user cryptographic salt) and checked with `bcrypt.compare`.
+- JWT payloads contain strictly `{ username }` (never passwords, hashes, or secrets), because JWT payloads are Base64URL-encoded rather than encrypted.
 
 ### Environment Variable & Secret Protection
-- Never commit `.env` files or API secrets to the repository.
-- Each laboratory directory contains a dedicated `.gitignore` that excludes `.env`, `node_modules`, and debug log files.
-- The root directory also maintains a recursive `.gitignore` rule (`**/.env`) as defense-in-depth.
+- Never commit `.env` files, API keys, or local user databases (`database/*.db`).
+- Each laboratory directory contains a dedicated `.gitignore` excluding `.env`, `node_modules`, and debug log files.
 
 ---
 
@@ -37,5 +41,5 @@ In `lab-02`, database operations interact with SQLite. To prevent SQL injection:
 
 If you discover a security concern or vulnerability in this repository:
 1. Please do not open a public issue.
-2. Contact the maintainer directly via GitHub profile: [@bharathwajverse](https://github.com/bharathwajverse).
+2. Contact the maintainer directly via GitHub profile: [@bharathwajverse](https://github.com/bharathwajverse) (`S.S.M.BHARADWAJ`).
 3. Provide a detailed description of the vulnerability, steps to reproduce, and potential remediation.
