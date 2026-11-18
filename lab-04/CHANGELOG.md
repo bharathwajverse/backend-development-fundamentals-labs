@@ -51,3 +51,4 @@
 - **[040] `feat(lab-04)`:** return 200 OK JSON response { jwt_token } upon verified login
 - **[041] `feat(lab-04)`:** wrap POST /login handler in try-catch returning 500 Unable to login on error
 - **[042] `feat(lab-04)`:** register catch-all 404 middleware returning Page not found for unknown routes
+- **[043] `security(lab-04)`:** verify zero plain-text password logging across all route handlers
