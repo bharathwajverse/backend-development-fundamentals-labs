@@ -29,3 +29,4 @@
 - **[018] `feat(lab-04)`:** implement GET / root endpoint returning Lab 4 title and Online status
 - **[019] `feat(lab-04)`:** populate student metadata S.S.M.BHARADWAJ and 252U1R1236 in root response
 - **[020] `feat(lab-04)`:** populate section CSE-CORE-2E and faculty Mr Yugandhar Gurjalwar in root response
+- **[021] `feat(lab-04)`:** document register and login POST paths in root JSON discovery object
