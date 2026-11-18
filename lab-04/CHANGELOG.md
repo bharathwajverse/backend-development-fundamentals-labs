@@ -82,3 +82,4 @@
 - **[071] `test(lab-04)`:** verify Postman request 05 POST /register 400 validation check
 - **[072] `test(lab-04)`:** verify Postman request 06 GET /login metadata check
 - **[073] `test(lab-04)`:** verify Postman request 07 POST /login 200 JWT issuance check
+- **[074] `test(lab-04)`:** verify Postman request 08 POST /login 400 unknown username check
