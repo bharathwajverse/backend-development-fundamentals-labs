@@ -76,3 +76,4 @@
 - **[065] `test(lab-04)`:** verify automated assertion 9: 404 fallback and SQLite $2b$10$ hash validation
 - **[066] `test(lab-04)`:** verify Postman collection variables baseUrl and renderUrl
 - **[067] `test(lab-04)`:** verify Postman request 01 GET / status check
+- **[068] `test(lab-04)`:** verify Postman request 02 GET /register metadata check
