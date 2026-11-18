@@ -77,3 +77,4 @@
 - **[066] `test(lab-04)`:** verify Postman collection variables baseUrl and renderUrl
 - **[067] `test(lab-04)`:** verify Postman request 01 GET / status check
 - **[068] `test(lab-04)`:** verify Postman request 02 GET /register metadata check
+- **[069] `test(lab-04)`:** verify Postman request 03 POST /register 201 creation check
