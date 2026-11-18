@@ -48,3 +48,4 @@
 - **[037] `feat(lab-04)`:** reject mismatched passwords with 400 Invalid password
 - **[038] `feat(lab-04)`:** construct minimal JWT identity payload containing strictly { username }
 - **[039] `feat(lab-04)`:** sign stateless HS256 JWT token via jwt.sign(payload, secretKey)
+- **[040] `feat(lab-04)`:** return 200 OK JSON response { jwt_token } upon verified login
