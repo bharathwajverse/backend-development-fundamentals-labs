@@ -115,3 +115,4 @@
 - **[104] `ci(lab-04)`:** integrate test-lab-04 workflow job into GitHub Actions verify-labs.yml
 - **[105] `ci(lab-04)`:** verify GitHub Actions Node 20 runner executes lab-04 npm test cleanly
 - **[106] `docs(root)`:** align root README badges with bcrypt and JWT authentication stack
+- **[107] `docs(root)`:** align root README directory tree with lab-04 files and render.yaml
