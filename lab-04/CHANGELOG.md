@@ -19,3 +19,4 @@
 - **[008] `feat(lab-04)`:** enable express.json() body parsing middleware for JSON auth payloads
 - **[009] `feat(lab-04)`:** implement synchronous database directory check via fs.existsSync and fs.mkdirSync
 - **[010] `feat(lab-04)`:** resolve portable SQLite path using path.join(__dirname, 'database', 'users.db')
+- **[011] `feat(lab-04)`:** configure asynchronous SQLite driver connection using sqlite open() and sqlite3
