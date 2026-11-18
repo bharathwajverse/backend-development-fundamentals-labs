@@ -101,3 +101,4 @@
 - **[090] `docs(lab-04)`:** cross-check API endpoints table matches Express routes in server.js
 - **[091] `docs(lab-04)`:** cross-check Viva Q1: why POST is required for login instead of GET
 - **[092] `docs(lab-04)`:** cross-check Viva Q2: one-way hashing vs two-way encryption
+- **[093] `docs(lab-04)`:** cross-check Viva Q3: jwt.sign payload, secretKey, and options
