@@ -67,3 +67,4 @@
 - **[056] `test(lab-04)`:** verify REST Client scenario 6: missing password POST /register returns 400
 - **[057] `test(lab-04)`:** verify automated assertion 1: GET / returns 200 with S.S.M.BHARADWAJ metadata
 - **[058] `test(lab-04)`:** verify automated assertion 2: GET /register and GET /login return 200
+- **[059] `test(lab-04)`:** verify automated assertion 3: POST /register inserts new account with 201
