@@ -103,3 +103,4 @@
 - **[092] `docs(lab-04)`:** cross-check Viva Q2: one-way hashing vs two-way encryption
 - **[093] `docs(lab-04)`:** cross-check Viva Q3: jwt.sign payload, secretKey, and options
 - **[094] `docs(lab-04)`:** cross-check Viva Q4: why passwords must never enter JWT payloads
+- **[095] `docs(lab-04)`:** cross-check Viva Q5: bcrypt cryptographic salt and cost factor rounds
