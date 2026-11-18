@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: backend-development-fundamentals-labs-app
+    runtime: node
+    plan: free
+    rootDir: lab-04
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
