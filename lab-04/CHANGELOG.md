@@ -68,3 +68,4 @@
 - **[057] `test(lab-04)`:** verify automated assertion 1: GET / returns 200 with S.S.M.BHARADWAJ metadata
 - **[058] `test(lab-04)`:** verify automated assertion 2: GET /register and GET /login return 200
 - **[059] `test(lab-04)`:** verify automated assertion 3: POST /register inserts new account with 201
+- **[060] `test(lab-04)`:** verify automated assertion 4: duplicate POST /register rejected with 400
