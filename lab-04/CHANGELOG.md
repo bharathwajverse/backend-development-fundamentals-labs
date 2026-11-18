@@ -112,3 +112,4 @@
 - **[101] `deploy(lab-04)`:** configure Render Node runtime with NODE_VERSION=20.18.0
 - **[102] `deploy(lab-04)`:** configure Render build command npm install and start command npm start
 - **[103] `deploy(lab-04)`:** verify Render Blueprint render.yaml syntax and service metadata
+- **[104] `ci(lab-04)`:** integrate test-lab-04 workflow job into GitHub Actions verify-labs.yml
