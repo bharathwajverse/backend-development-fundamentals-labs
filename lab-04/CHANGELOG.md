@@ -110,3 +110,4 @@
 - **[099] `deploy(lab-04)`:** configure Render service name backend-development-fundamentals-labs-app
 - **[100] `deploy(lab-04)`:** configure Render root directory lab-04 for monorepo isolation
 - **[101] `deploy(lab-04)`:** configure Render Node runtime with NODE_VERSION=20.18.0
+- **[102] `deploy(lab-04)`:** configure Render build command npm install and start command npm start
