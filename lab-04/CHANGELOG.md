@@ -13,3 +13,4 @@
 - **[002] `chore(lab-04)`:** configure npm start and npm run dev lifecycle scripts
 - **[003] `chore(lab-04)`:** add npm run db shortcut for inspecting SQLite user records
 - **[004] `chore(lab-04)`:** configure npm test script invoking automated test-runner.js
+- **[005] `chore(lab-04)`:** validate .gitignore rules for node_modules, .env, logs, and users.db
