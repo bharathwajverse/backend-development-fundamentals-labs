@@ -1,0 +1,153 @@
+{
+  "info": {
+    "name": "Lab 4 - Registration, Login & JWT Authentication (S.S.M.BHARADWAJ)",
+    "description": "Backend Development Fundamentals Lab 4 Postman Collection by S.S.M.BHARADWAJ (252U1R1236, CSE-CORE-2E)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "renderUrl",
+      "value": "https://backend-development-fundamentals-labs-app.onrender.com"
+    }
+  ],
+  "item": [
+    {
+      "name": "01. Root Status & Student Verification (GET /)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/"
+      }
+    },
+    {
+      "name": "02. Register Endpoint Metadata (GET /register)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/register"
+      }
+    },
+    {
+      "name": "03. Register New User (POST /register -> 201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"bharadwaj_ssm\",\n  \"name\": \"S.S.M.BHARADWAJ\",\n  \"password\": \"pass123\"\n}"
+        },
+        "url": "{{baseUrl}}/register"
+      }
+    },
+    {
+      "name": "04. Register Duplicate Username (POST /register -> 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"bharadwaj_ssm\",\n  \"name\": \"S.S.M.BHARADWAJ\",\n  \"password\": \"pass123\"\n}"
+        },
+        "url": "{{baseUrl}}/register"
+      }
+    },
+    {
+      "name": "05. Register Missing Fields (POST /register -> 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"newuser\",\n  \"name\": \"New User\"\n}"
+        },
+        "url": "{{baseUrl}}/register"
+      }
+    },
+    {
+      "name": "06. Login Endpoint Metadata (GET /login)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/login"
+      }
+    },
+    {
+      "name": "07. Login Valid Credentials & Issue JWT (POST /login -> 200)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"bharadwaj_ssm\",\n  \"password\": \"pass123\"\n}"
+        },
+        "url": "{{baseUrl}}/login"
+      }
+    },
+    {
+      "name": "08. Login Unknown Username (POST /login -> 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"unknownuser\",\n  \"password\": \"pass123\"\n}"
+        },
+        "url": "{{baseUrl}}/login"
+      }
+    },
+    {
+      "name": "09. Login Wrong Password (POST /login -> 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"bharadwaj_ssm\",\n  \"password\": \"wrong123\"\n}"
+        },
+        "url": "{{baseUrl}}/login"
+      }
+    },
+    {
+      "name": "10. Undefined Route Catch-All (GET /notfound -> 404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/notfound"
+      }
+    }
+  ]
+}
