@@ -24,3 +24,4 @@
 - **[013] `feat(lab-04)`:** enforce UNIQUE constraint on user.username column in SQLite schema
 - **[014] `feat(lab-04)`:** define TEXT name column in user table for full student display name
 - **[015] `feat(lab-04)`:** define TEXT password column storing exclusively 60-char bcrypt hashes
+- **[016] `feat(lab-04)`:** configure dynamic port binding via process.env.PORT || 3000 for Render
