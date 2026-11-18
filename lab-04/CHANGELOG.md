@@ -99,3 +99,4 @@
 - **[088] `docs(lab-04)`:** cross-check registration number 252U1R1236 across all Lab 4 assets
 - **[089] `docs(lab-04)`:** cross-check faculty attribution Mr Yugandhar Gurjalwar in server and docs
 - **[090] `docs(lab-04)`:** cross-check API endpoints table matches Express routes in server.js
+- **[091] `docs(lab-04)`:** cross-check Viva Q1: why POST is required for login instead of GET
