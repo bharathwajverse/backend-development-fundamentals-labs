@@ -116,3 +116,4 @@
 - **[105] `ci(lab-04)`:** verify GitHub Actions Node 20 runner executes lab-04 npm test cleanly
 - **[106] `docs(root)`:** align root README badges with bcrypt and JWT authentication stack
 - **[107] `docs(root)`:** align root README directory tree with lab-04 files and render.yaml
+- **[108] `docs(root)`:** align root README lab overview matrix marking Lab 04 Completed
