@@ -65,3 +65,4 @@
 - **[054] `test(lab-04)`:** verify REST Client scenario 4: unknown username POST /login returns 400
 - **[055] `test(lab-04)`:** verify REST Client scenario 5: wrong password POST /login returns 400
 - **[056] `test(lab-04)`:** verify REST Client scenario 6: missing password POST /register returns 400
+- **[057] `test(lab-04)`:** verify automated assertion 1: GET / returns 200 with S.S.M.BHARADWAJ metadata
