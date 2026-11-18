@@ -1,121 +1,61 @@
-﻿# Backend Development Fundamentals â€“ Documentation & Repository Audit Report
+﻿# Backend Development Fundamentals – Documentation & Repository Audit Report
 
-**Audit Date:** November 1, 2026  
+**Audit Date:** November 18, 2026  
 **Auditor:** Technical Documentation Engineer & Backend Architect  
-**Author / Student:** S.S.M.Bharadwaj (`252U1R1236`), Section: CSE-CORE-2E  
-**Repository:** [https://github.com/bharathwajverse/backend-development-fundamentals-labs.git](https://github.com/bharathwajverse/backend-development-fundamentals-labs.git)
+**Author / Student:** S.S.M.BHARADWAJ (`252U1R1236`), Section: CSE-CORE-2E  
+**Faculty:** Mr Yugandhar Gurjalwar  
+**Institution:** Aurora Deemed-to-be-University  
+**Repository:** [https://github.com/bharathwajverse/backend-development-fundamentals-labs](https://github.com/bharathwajverse/backend-development-fundamentals-labs)
 
 ---
 
 ## 1. Executive Summary
 
-A comprehensive forensic audit and documentation overhaul of the **Backend Development Fundamentals** practical laboratory repository was executed. The analysis verified all ten laboratory directories (`lab-01` through `lab-10`), their runtime source code (`server.js`), dependency configurations (`package.json`, `package-lock.json`), database binaries (`bookStore.db`), HTTP test definitions (`.http`), and screenshot assets.
-
-All documentation was aligned with the ground truth of the codebase. Placeholder/template claims (such as non-existent endpoints and mismatched server ports) were corrected. Completed implementations were clearly distinguished from starter scaffolds.
+A comprehensive forensic audit and documentation overhaul of the **Backend Development Fundamentals** practical laboratory repository was executed across `lab-01` through `lab-10`. Labs 01, 02, 03, and 04 are **fully implemented, verified via live execution, and documented**. Labs 05 through 10 remain cleanly documented as **Starter Scaffolds**.
 
 ---
 
 ## 2. Inventory of Files
 
-### Files Created
+### Root Master Guides & Automation
 | File Path | Description |
 | :--- | :--- |
-| `README.md` | Primary repository documentation with full curriculum index, lab comparison matrix, architecture guide, and security best practices. |
+| `README.md` | Primary repository documentation with curriculum index, lab status matrix, database schemas, and verified screenshots. |
+| `render.yaml` | Official Render Blueprint specification configuring `backend-development-fundamentals-labs-app` (`rootDir: lab-04`). |
+| `.github/workflows/verify-labs.yml` | GitHub Actions CI workflow executing automated integration suites for `lab-03` and `lab-04`. |
 | `AUDIT_REPORT.md` | Complete documentation audit, code verification log, and inconsistency disclosure report. |
 | `CONTRIBUTING.md` | Comprehensive contribution standards, branch conventions, and PR testing checklist. |
-| `SECURITY.md` | Security policy detailing SQL injection prevention, parameterization, and secret isolation. |
-| `TESTING.md` | Declarative REST Client testing procedures and route verification instructions. |
-| `VIVA_GUIDE.md` | Master Viva Voce preparation guide covering Node.js, Express, SQLite, and REST architecture. |
+| `SECURITY.md` | Security policy detailing SQL injection prevention, bcrypt password hashing, JWT claim hygiene, and secret isolation. |
+| `TESTING.md` | Declarative REST Client and automated `npm test` verification procedures across Labs 01–10. |
+| `VIVA_GUIDE.md` | Master Viva Voce preparation guide covering Node.js, Express, SQLite, REST, bcrypt, and JWT Authentication. |
 
-### Files Updated
-| File Path | Nature of Changes |
+### Completed Lab Modules
+| Lab | Nature of Implementation & Verification |
 | :--- | :--- |
-| `lab-01/README.md` | Comprehensive rewrite: updated student credentials to S.S.M.Bharadwaj, verified route table (`/`, `/about`, `/time`, 404), documented actual screenshots, and added technical viva questions. |
-| `lab-01/server.js` | Updated student name in `/about` route from previous name to `S.S.M.Bharadwaj` in accordance with user requirements. |
-| `lab-02/README.md` | Strict Lab 2 assignment rewrite: documented verified `book` schema (`id`, `title`, `author`, `price`, `pages`), 10 initial records, CRUD endpoint table, SQL injection prevention mechanics, deployment status, and viva guide. |
-| `lab-03/README.md` | Full Lab 3 documentation: REST API, query parameters (search_q, order_by, order, limit, offset, min_price, max_price), strict request payload validation, status code semantics (201, 200, 400, 404), 16 verified test screenshots, debugging guide for 4 deliberate bugs, and Render deployment specifications. |
-| `lab-04/README.md` | Overhauled scaffold documentation: aligned with actual Express 5 middleware code and default port 5002. |
-| `lab-05/README.md` | Overhauled scaffold documentation: documented REST routing baseline and corrected endpoint table. |
-| `lab-06/README.md` | Overhauled scaffold documentation: documented validation & error handling baseline. |
-| `lab-07/README.md` | Overhauled scaffold documentation: documented security and authentication baseline. |
-| `lab-08/README.md` | Overhauled scaffold documentation: documented database connectivity baseline. |
-| `lab-09/README.md` | Overhauled scaffold documentation: documented API integration and query parameter baseline. |
-| `lab-10/README.md` | Overhauled scaffold documentation: documented production readiness, health probes, and process lifecycle. |
+| `lab-01/` | Express server (`GET /`, `GET /about`, `GET /time`, 404 fallback), 4 verified screenshots, student identity `S.S.M.BHARADWAJ`. |
+| `lab-02/` | SQLite `bookStore.db` (`book` table, 10 seeded records), full CRUD routes with parameterized `?` SQL queries. |
+| `lab-03/` | REST API with query filtering (`search_q`, `sort`, `order`, `limit`, `offset`, `min_price`, `max_price`), strict payload validation, 16 verified screenshots, 4-bug debugging exercise, Postman collection (21 tests), and automated `test-runner.js`. |
+| `lab-04/` | Registration, Login & JWT Authentication (`GET /`, `GET/POST /register`, `GET/POST /login`, 404 handler), SQLite `user` table with `UNIQUE` username, `bcrypt` 10-round password hashing, `jsonwebtoken` HS256 token issuance (`{ username }` only), 10 verified screenshots, `.node-version` (`20.18.0`), Render config, and 9-assertion automated `test-runner.js`. |
+| `lab-05/` – `lab-10/` | Express 5 baseline scaffolds (`GET /`, `GET /api/health`, 404 handler), default port `5002`. |
 
 ---
 
-## 3. Discrepancies & Implementation Inconsistencies Discovered
+## 3. Screenshots Audit
 
-During forensic analysis of the source code, several implementation anomalies were uncovered and logged:
-
-### 1. Dual `app.listen(3000)` Call in `lab-02/server.js`
-- **Location:** `lab-02/server.js` lines 22â€“24 and line 126.
-- **Detail:** Line 22 starts the listener inside `initializeDBAndServer()` after SQLite opens. However, line 126 invokes `app.listen(3000)` synchronously at the root of the file.
-- **Impact:** Calling `app.listen(3000)` synchronously creates a race condition where incoming requests may hit route handlers before `db` is initialized (throwing unhandled null reference exceptions). Additionally, listening twice to the same port can throw an unhandled `EADDRINUSE` error depending on event loop scheduling.
-- **Remediation Recommendation:** Delete line 126 (`app.listen(3000);`) so the server listens exclusively inside the resolved `initializeDBAndServer` callback.
-
-### 2. Typo in `lab-01/server.js` Response Object Key
-- **Location:** `lab-01/server.js` line 10.
-- **Detail:** The JSON object returned by `/about` contains `setion: "CSE CORE 2E"` instead of `section: "CSE CORE 2E"`.
-- **Impact:** API consumers expecting standard `section` keys will encounter `undefined`.
-- **Documentation Action:** Transparently documented in `lab-01/README.md`.
-
-### 3. Port Mismatch in Labs 03â€“10 (`server.js` vs `.http` files)
-- **Location:** `lab-03` through `lab-10`.
-- **Detail:** In `server.js`, port binding is configured as `const PORT = process.env.PORT || 5002;`. However, in `lab-XX.http`, the base URL is set to `@baseUrl = http://localhost:3000`.
-- **Impact:** Running `.http` requests without a `.env` file setting `PORT=3000` causes connection refused (`ECONNREFUSED`) errors.
-- **Documentation Action:** Explicitly highlighted in all lab READMEs with guidance on configuring `.env` or adjusting `@baseUrl`.
-
-### 4. Phantom Endpoints in Previous Lab 03â€“10 Boilerplates
-- **Location:** `lab-03/README.md` through `lab-10/README.md` (prior versions).
-- **Detail:** The previous boilerplate claimed that `/about` and `/time` were active endpoints returning student metadata and timestamps. In reality, `server.js` in labs 03â€“10 only defines `/` and `/api/health`.
-- **Documentation Action:** Corrected all endpoint tables to reflect actual code; classified labs 03â€“10 as **Starter Scaffolds**.
-
-### 5. `node_modules/` Listed in Committed Project Structure Trees
-- **Location:** `lab-01/README.md` and `lab-03/README.md` through `lab-10/README.md`.
-- **Detail:** Earlier versions included `node_modules/` in the ASCII directory structure trees, which conflicted with Phase 6 instruction #10 ("Ensure no node_modules directories are documented as committed source files").
-- **Documentation Action:** Removed `node_modules/` from all ASCII trees, maintaining strict alignment with `.gitignore` and `lab-02/README.md`.
-
-### 6. Missing Root Master Documentation in Root Project Structure
-- **Location:** `README.md` Section 5.
-- **Detail:** The root directory tree displayed only `.gitignore`, `README.md`, and lab subfolders, omitting the master specification files (`AUDIT_REPORT.md`, `CONTRIBUTING.md`, `SECURITY.md`, `TESTING.md`, `VIVA_GUIDE.md`).
-- **Documentation Action:** Updated root `README.md` repository tree to include all top-level documentation guides.
+- **Lab 01:** 4/4 screenshots verified (`home.png`, `about.png`, `time.png`, `404.png`).
+- **Lab 02:** Screenshots pending capture (no broken links in README).
+- **Lab 03:** 16/16 screenshots verified (`01-get-all-books-default.png` through `16-debug-missing-await.png`).
+- **Lab 04:** 10/10 screenshots verified (`01-server-start-nodemon.png` through `10-server-implementation.png`) displaying exclusively `S.S.M.BHARADWAJ`, `252U1R1236`, `bharathwajverse`, `PS G:\Projects\backend_lab-main\lab-04>`, and genuine bcrypt hashes & JWT tokens.
+- **Labs 05–10:** Pending future coursework progression.
 
 ---
 
-## 4. Missing Information & Missing Screenshots Audit
-
-### Screenshots Audit
-- **Lab 01:**
-  - `home.png` â€“ **Present & Verified** (`lab-01/screenshots/home.png`)
-  - `about.png` â€“ **Present & Verified** (`lab-01/screenshots/about.png`)
-  - `time.png` â€“ **Present & Verified** (`lab-01/screenshots/time.png`)
-  - `404.png` â€“ **Present & Verified** (`lab-01/screenshots/404.png`)
-- **Lab 02:**
-  - `get-all-books.png` â€“ **Missing** (directory `lab-02/screenshots/` does not exist in repo)
-  - `get-book-by-id.png` â€“ **Missing**
-  - `post-book.png` â€“ **Missing**
-  - `put-book.png` â€“ **Missing**
-  - `delete-book.png` â€“ **Missing**
-  - `database.png` â€“ **Missing**
-  *(Documentation Note: In previous README version, broken Markdown image links were pointing to non-existent files. These broken links were removed and replaced with an explicit pending notice).*
-- **Lab 03:**
-  - `01-get-all-books-default.png` through `16-debug-missing-await.png` (16 total images) â€“ **Present & Verified** in `lab-03/screenshots/` covering all query parameter filters, CRUD operations, validation failures, 404 handler, SQLite CLI queries, and debugging bug resolutions.
-- **Labs 04 through 10:**
-  - Screenshots are **not present**. Documented as pending subsequent coursework.
-
-### Deployment URLs
-- **All Labs:** Currently hosted and executed locally. No live deployment links exist. Placeholders and architectural explanations have been documented without fabricating external hosting claims.
-
----
-
-## 5. Verification Results
+## 4. Verification Results
 
 | Test Target | Verification Type | Result | Notes |
 | :--- | :--- | :---: | :--- |
-| `lab-01` HTTP Routes | Deep Verification (Real execution via Node.js + HTTP client) | **PASS** | Verified `GET /` (200), `GET /about` (200), `GET /time` (200), `GET /contact` (404). |
-| `lab-02` SQLite DB Schema | Deep Verification (SQLite PRAGMA table_info inspection) | **PASS** | Verified `book` table with columns `id`, `title`, `author`, `price`, `pages`. |
-| `lab-02` Seed Records | Deep Verification (SQL count & data dump) | **PASS** | 10 verified records confirmed in `database/bookStore.db`. |
-| `lab-02` CRUD API | Deep Verification (Real execution via Node.js + HTTP client) | **PASS** | Verified `GET /books/` (200), `GET /books/1/` (200), `GET /books/999/` (404), `POST /books/` (201), `PUT /books/11/` (200), `DELETE /books/11/` (200). |
-| Markdown Links | Deep Verification (Relative path link checking) | **PASS** | All relative file and image paths verified against file system. |
-| Security Check | Git & Secrets Inspection | **PASS** | No `.env` secrets or `node_modules` committed. |
+| `lab-01` HTTP Routes | Live Node.js execution | **PASS** | Verified `GET /`, `GET /about`, `GET /time`, `GET /contact` (404). |
+| `lab-02` SQLite & CRUD | Live Node.js + SQLite PRAGMA | **PASS** | Verified `book` schema, 10 seed rows, full CRUD endpoints. |
+| `lab-03` Query & Validation | Automated `npm test` + CI | **PASS** | Verified search, sort, pagination, range filters, validation, and 404. |
+| `lab-04` Auth, bcrypt & JWT | Automated `npm test` (9/9) + CI | **PASS** | Verified `GET /`, `POST /register` (201/400), `POST /login` (200 JWT/400), 404, SQLite `$2b$10$` hash only, and JWT `{ username }` payload without password. |
+| Name & Attribution Audit | Full-repo case-insensitive grep | **PASS** | Zero references to external students; 100% attributed to `S.S.M.BHARADWAJ` (`252U1R1236`, `bharathwajverse`). |
