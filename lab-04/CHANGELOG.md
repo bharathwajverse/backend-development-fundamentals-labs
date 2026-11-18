@@ -72,3 +72,4 @@
 - **[061] `test(lab-04)`:** verify automated assertion 5: incomplete POST /register rejected with 400
 - **[062] `test(lab-04)`:** verify automated assertion 6: POST /login JWT verifies with MY_SECRET_KEY
 - **[063] `test(lab-04)`:** verify automated assertion 7: POST /login unknown user rejected with 400
+- **[064] `test(lab-04)`:** verify automated assertion 8: POST /login wrong password rejected with 400
