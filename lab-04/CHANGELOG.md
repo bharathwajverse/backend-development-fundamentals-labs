@@ -34,3 +34,4 @@
 - **[023] `feat(lab-04)`:** implement POST /register request destructuring for username, name, and password
 - **[024] `feat(lab-04)`:** validate required registration fields returning 400 Bad Request when missing
 - **[025] `feat(lab-04)`:** query existing username using parameterized SELECT * FROM user WHERE username = ?
+- **[026] `feat(lab-04)`:** reject duplicate username registrations with 400 Username already exists
