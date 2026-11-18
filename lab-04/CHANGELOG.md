@@ -32,3 +32,4 @@
 - **[021] `feat(lab-04)`:** document register and login POST paths in root JSON discovery object
 - **[022] `feat(lab-04)`:** implement GET /register helper endpoint with sample JSON registration payload
 - **[023] `feat(lab-04)`:** implement POST /register request destructuring for username, name, and password
+- **[024] `feat(lab-04)`:** validate required registration fields returning 400 Bad Request when missing
