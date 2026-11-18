@@ -61,3 +61,4 @@
 - **[050] `security(lab-04)`:** verify login uses HTTP POST body rather than GET query parameters
 - **[051] `test(lab-04)`:** verify REST Client scenario 1: POST /register creates bharadwaj_ssm (201)
 - **[052] `test(lab-04)`:** verify REST Client scenario 2: duplicate POST /register returns 400
+- **[053] `test(lab-04)`:** verify REST Client scenario 3: valid POST /login issues signed JWT (200)
