@@ -118,3 +118,4 @@
 - **[107] `docs(root)`:** align root README directory tree with lab-04 files and render.yaml
 - **[108] `docs(root)`:** align root README lab overview matrix marking Lab 04 Completed
 - **[109] `docs(root)`:** align root README port allocation table for Labs 01-04 (3000) and 05-10 (5002)
+- **[110] `docs(root)`:** align root README screenshots section with all 30 verified lab images
