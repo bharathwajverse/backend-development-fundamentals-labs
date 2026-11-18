@@ -56,3 +56,4 @@
 - **[045] `security(lab-04)`:** verify bcrypt hash modular format $2b$10$<22-char-salt><31-char-digest>
 - **[046] `security(lab-04)`:** verify identical passwords produce unique salted bcrypt digests per user
 - **[047] `security(lab-04)`:** verify JWT payload excludes password, password hash, and secretKey
+- **[048] `security(lab-04)`:** verify HS256 JWT signature tampering detection via jwt.verify
