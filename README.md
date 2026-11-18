@@ -331,7 +331,7 @@ In strict compliance with documentation integrity standards, only verified scree
 ### Lab 03 Verification Screenshots (16 Files)
 All 16 screenshots (`01-get-all-books-default.png` through `16-debug-missing-await.png`) are verified and embedded in [`lab-03/README.md`](./lab-03/README.md).
 
-### Lab 04 Verification Screenshots (10 Files)
+### Lab 04 Verification Screenshots (11 Files)
 | Verification Scenario | Relative Path | Status |
 | :--- | :--- | :---: |
 | Nodemon Server Startup | [`lab-04/screenshots/01-server-start-nodemon.png`](./lab-04/screenshots/01-server-start-nodemon.png) | Verified |
@@ -344,6 +344,7 @@ All 16 screenshots (`01-get-all-books-default.png` through `16-debug-missing-awa
 | JWT.io Token Decoding & Verification | [`lab-04/screenshots/08-jwt-io-token-inspection.png`](./lab-04/screenshots/08-jwt-io-token-inspection.png) | Verified |
 | REST Client Suite & Test Runner | [`lab-04/screenshots/09-rest-client-test-suite.png`](./lab-04/screenshots/09-rest-client-test-suite.png) | Verified |
 | Clean `server.js` Implementation | [`lab-04/screenshots/10-server-implementation.png`](./lab-04/screenshots/10-server-implementation.png) | Verified |
+| Live Render Production Output (`GET /`) | [`lab-04/screenshots/11-render-live-deployment.png`](./lab-04/screenshots/11-render-live-deployment.png) | Verified |
 
 ---
 
