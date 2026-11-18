@@ -53,3 +53,4 @@
 - **[042] `feat(lab-04)`:** register catch-all 404 middleware returning Page not found for unknown routes
 - **[043] `security(lab-04)`:** verify zero plain-text password logging across all route handlers
 - **[044] `security(lab-04)`:** verify zero plain-text password storage in SQLite database/users.db
+- **[045] `security(lab-04)`:** verify bcrypt hash modular format $2b$10$<22-char-salt><31-char-digest>
