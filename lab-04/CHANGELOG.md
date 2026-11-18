@@ -88,3 +88,4 @@
 - **[077] `docs(lab-04)`:** verify screenshot 01 displays local workspace prompt and nodemon startup
 - **[078] `docs(lab-04)`:** verify screenshot 02 displays 201 Created response for bharadwaj_ssm
 - **[079] `docs(lab-04)`:** verify screenshot 03 displays 400 Bad Request duplicate rejection
+- **[080] `docs(lab-04)`:** verify screenshot 04 displays 200 OK signed HS256 jwt_token response
