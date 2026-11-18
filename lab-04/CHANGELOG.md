@@ -10,3 +10,4 @@
 ## Atomic Development & Verification Milestones
 
 - **[001] `chore(lab-04)`:** verify Node.js v20.18.0 LTS compatibility for native addons
+- **[002] `chore(lab-04)`:** configure npm start and npm run dev lifecycle scripts
