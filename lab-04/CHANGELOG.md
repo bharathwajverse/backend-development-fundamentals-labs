@@ -73,3 +73,4 @@
 - **[062] `test(lab-04)`:** verify automated assertion 6: POST /login JWT verifies with MY_SECRET_KEY
 - **[063] `test(lab-04)`:** verify automated assertion 7: POST /login unknown user rejected with 400
 - **[064] `test(lab-04)`:** verify automated assertion 8: POST /login wrong password rejected with 400
+- **[065] `test(lab-04)`:** verify automated assertion 9: 404 fallback and SQLite $2b$10$ hash validation
