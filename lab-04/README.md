@@ -499,6 +499,12 @@ Shows the end-to-end execution of all six registration and login test cases alon
 Shows the production Express.js implementation with parameterized SQL queries, bcrypt hashing, and JWT token generation:
 ![Server Implementation](screenshots/10-server-implementation.png)
 
+### 11. Live Production Deployment on Render (`GET /`)
+- **Live Render URL:** [https://backend-development-fundamentals-labs-app.onrender.com/](https://backend-development-fundamentals-labs-app.onrender.com/)
+
+Displays the live deployed Render server returning HTTP `200 OK` with student verification metadata (`S.S.M.BHARADWAJ`, `252U1R1236`, `CSE-CORE-2E`):
+![Live Render Deployment](screenshots/11-render-live-deployment.png)
+
 ---
 
 ## ❗ Notes: Problems Faced and Solutions
