@@ -92,3 +92,4 @@
 - **[081] `docs(lab-04)`:** verify screenshot 05 displays 400 Invalid username rejection
 - **[082] `docs(lab-04)`:** verify screenshot 06 displays 400 Invalid password rejection
 - **[083] `docs(lab-04)`:** verify screenshot 07 displays npm run db table with bcrypt hashes
+- **[084] `docs(lab-04)`:** verify screenshot 08 displays jwt.io decoded header, payload, and green B avatar
