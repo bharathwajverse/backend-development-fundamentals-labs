@@ -27,3 +27,24 @@ jobs:
       - name: Execute Automated Test Runner
         working-directory: ./lab-03
         run: npm test
+
+  test-lab-04:
+    name: Verify Lab 04 Auth & JWT Endpoints
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        working-directory: ./lab-04
+        run: npm install
+
+      - name: Execute Automated Test Runner
+        working-directory: ./lab-04
+        run: npm test
