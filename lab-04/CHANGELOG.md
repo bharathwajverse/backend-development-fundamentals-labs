@@ -107,3 +107,4 @@
 - **[096] `docs(lab-04)`:** document database schema and modular crypt format formula in README
 - **[097] `docs(lab-04)`:** document SQLite CLI inspection commands and verified tabular output
 - **[098] `docs(lab-04)`:** document troubleshooting notes for native addons and SQLITE_CANTOPEN
+- **[099] `deploy(lab-04)`:** configure Render service name backend-development-fundamentals-labs-app
