@@ -85,3 +85,4 @@
 - **[074] `test(lab-04)`:** verify Postman request 08 POST /login 400 unknown username check
 - **[075] `test(lab-04)`:** verify Postman request 09 POST /login 400 invalid password check
 - **[076] `test(lab-04)`:** verify Postman request 10 GET /notfound 404 catch-all check
+- **[077] `docs(lab-04)`:** verify screenshot 01 displays local workspace prompt and nodemon startup
