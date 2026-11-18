@@ -17,3 +17,4 @@
 - **[006] `chore(lab-04)`:** verify .node-version runtime pin matches package.json engines field
 - **[007] `chore(lab-04)`:** verify .env.example excludes all production secrets and keys
 - **[008] `feat(lab-04)`:** enable express.json() body parsing middleware for JSON auth payloads
+- **[009] `feat(lab-04)`:** implement synchronous database directory check via fs.existsSync and fs.mkdirSync
